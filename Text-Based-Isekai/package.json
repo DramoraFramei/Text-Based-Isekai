@@ -1,0 +1,12 @@
+{
+  "name": "text-based-isekai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "start": "node game.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
