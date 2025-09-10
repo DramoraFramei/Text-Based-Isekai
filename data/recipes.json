@@ -1,0 +1,296 @@
+{
+    "recipes": {
+        "torch": {
+            "description": "Combine a stick and some cloth to make a torch.",
+            "materials": {
+                "stick": 1,
+                "cloth_scrap": 1
+            },
+            "station": null
+        },
+        "leather_armor": {
+            "description": "Stitch together leather scraps to create some basic armor.",
+            "materials": {
+                "leather_scrap": 5,
+                "thread": 2
+            },
+            "station": "workbench"
+        },
+        "iron_ingot": {
+            "description": "Smelt iron ore into a usable ingot.",
+            "materials": {
+                "iron_ore": 2
+            },
+            "station": "forge"
+        },
+        "copper_ingot": {
+            "description": "Smelt copper ore into a usable ingot.",
+            "materials": {
+                "copper_ore": 2
+            },
+            "station": "forge"
+        },
+        "brass_ingot": {
+            "description": "Smelt brass ore into a usable ingot.",
+            "materials": {
+                "brass_ore": 2
+            },
+            "station": "forge"
+        },
+        "bronze_ingot": {
+            "description": "Smelt bronze ore into a usable ingot.",
+            "materials": {
+                "bronze_ore": 2
+            },
+            "station": "forge"
+        },
+        "pig_iron_ingot": {
+            "description": "Smelt pig iron ore into a usable ingot.",
+            "materials": {
+                "pig_iron_ore": 2
+            },
+            "station": "forge"
+        },
+        "steel_ingot": {
+            "description": "Smelt steel ore into a usable ingot.",
+            "materials": {
+                "steel_ore": 2
+            },
+            "station": "forge"
+        },
+        "titanium_ingot": {
+            "description": "Smelt titanium ore into a usable ingot.",
+            "materials": {
+                "titanium_ore": 2
+            },
+            "station": "forge"
+        },
+        "mithril_ingot": {
+            "description": "Smelt mithril ore into a usable ingot.",
+            "materials": {
+                "mithril_ore": 2
+            },
+            "station": "forge"
+        },
+        "adamantite_ingot": {
+            "description": "Smelt adamantite ore into a usable ingot.",
+            "materials": {
+                "adamantite_ore": 2
+            },
+            "station": "forge"
+        },
+        "dragonite_ingot": {
+            "description": "Smelt dragonite ore into a usable ingot.",
+            "materials": {
+                "dragonite_ore": 2
+            },
+            "station": "forge"
+        },
+        "celestial_steel_ingot": {
+            "description": "Smelt celestial steel ore into a usable ingot.",
+            "materials": {
+                "celestial_steel_ore": 2
+            },
+            "station": "forge"
+        },
+        "primordial_steel_ingot": {
+            "description": "Smelt primordial steel ore into a usable ingot.",
+            "materials": {
+                "primordial_steel_ore": 2
+            },
+            "station": "forge"
+        },
+        "iron_sword": {
+            "description": "Forge a basic sword from iron ingots.",
+            "materials": {
+                "iron_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "iron_plate_armor": {
+            "description": "Assemble a suit of iron plate armor.",
+            "materials": {
+                "iron_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "iron_pickaxe": {
+            "description": "Forge a durable iron pickaxe.",
+            "materials": {
+                "iron_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "copper_sword": {
+            "description": "Forge a sword from copper ingots.",
+            "materials": {
+                "copper_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "copper_plate_armor": {
+            "description": "Assemble a suit of copper plate armor.",
+            "materials": {
+                "copper_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "copper_pickaxe": {
+            "description": "Forge a durable copper pickaxe.",
+            "materials": {
+                "copper_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "titanium_sword": {
+            "description": "Forge a lightweight sword from titanium ingots.",
+            "materials": {
+                "titanium_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "titanium_plate_armor": {
+            "description": "Assemble a suit of titanium plate armor.",
+            "materials": {
+                "titanium_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "titanium_pickaxe": {
+            "description": "Forge a durable titanium pickaxe.",
+            "materials": {
+                "titanium_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "mithril_sword": {
+            "description": "Forge a magical sword from mithril ingots.",
+            "materials": {
+                "mithril_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "mithril_plate_armor": {
+            "description": "Assemble a suit of mithril plate armor.",
+            "materials": {
+                "mithril_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "mithril_pickaxe": {
+            "description": "Forge a durable mithril pickaxe.",
+            "materials": {
+                "mithril_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "adamantite_sword": {
+            "description": "Forge an unbreakable sword from adamantite ingots.",
+            "materials": {
+                "adamantite_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "adamantite_plate_armor": {
+            "description": "Assemble a suit of adamantite plate armor.",
+            "materials": {
+                "adamantite_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "adamantite_pickaxe": {
+            "description": "Forge a durable adamantite pickaxe.",
+            "materials": {
+                "adamantite_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "dragonite_sword": {
+            "description": "Forge a powerful sword from dragonite ingots.",
+            "materials": {
+                "dragonite_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "dragonite_plate_armor": {
+            "description": "Assemble a suit of dragonite plate armor.",
+            "materials": {
+                "dragonite_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "dragonite_pickaxe": {
+            "description": "Forge a durable dragonite pickaxe.",
+            "materials": {
+                "dragonite_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "celestial_steel_sword": {
+            "description": "Forge a divine sword from celestial steel ingots.",
+            "materials": {
+                "celestial_steel_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "celestial_steel_plate_armor": {
+            "description": "Assemble a suit of celestial steel plate armor.",
+            "materials": {
+                "celestial_steel_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "celestial_steel_pickaxe": {
+            "description": "Forge a divine celestial steel pickaxe.",
+            "materials": {
+                "celestial_steel_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        },
+        "primordial_steel_sword": {
+            "description": "Forge a reality-bending sword from primordial steel ingots.",
+            "materials": {
+                "primordial_steel_ingot": 3,
+                "stick": 1
+            },
+            "station": "forge"
+        },
+        "primordial_steel_plate_armor": {
+            "description": "Assemble a suit of primordial steel plate armor.",
+            "materials": {
+                "primordial_steel_ingot": 5,
+                "leather_scrap": 2
+            },
+            "station": "workbench"
+        },
+        "primordial_steel_pickaxe": {
+            "description": "Forge a reality-bending primordial steel pickaxe.",
+            "materials": {
+                "primordial_steel_ingot": 2,
+                "stick": 2
+            },
+            "station": "forge"
+        }
+    }
+}

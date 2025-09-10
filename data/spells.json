@@ -1,0 +1,179 @@
+{
+    "spells": {
+        "destruction": {
+            "fire": [
+                "flames",
+                "fireball",
+                "hell fire"
+            ],
+            "ice": [
+                "frostbite",
+                "icy wind"
+            ],
+            "lightning": [
+                "lightning bolt",
+                "thunderclap",
+                "lightning strike",
+                "chain lightning"
+            ],
+            "water": [
+                "flood",
+                "gush",
+                "splash"
+            ],
+            "air": [
+                "wind blade",
+                "storm spear",
+                "cloud control"
+            ],
+            "earth": [
+                "rock bullet",
+                "earthquake"
+            ]
+        },
+        "summoning": {
+            "familiar": {
+                "ally": [
+                    "elemental",
+                    "beast"
+                ],
+                "pet": [
+                    "cat",
+                    "dog",
+                    "lizard",
+                    "snake"
+                ],
+                "temporary": [
+                    "elemental",
+                    "beast"
+                ]
+            },
+            "divine": [
+                "angel",
+                "demi-god",
+                "god",
+                "spirit",
+                "ghosts"
+            ],
+            "primordial": [
+                "voidling",
+                "Android",
+                "Chimeras",
+                "Dream-Eaters",
+                "Genies",
+                "Hydra-people",
+                "Mists",
+                "Monstrosities",
+                "Oni"
+            ],
+            "demonic": [
+                "demon",
+                "monster",
+                "undead",
+                "spirit",
+                "ghosts"
+            ]
+        },
+        "healing": {
+            "self": [
+                "healing orb",
+                "life drain",
+                "life leach"
+            ],
+            "area": [
+                "healing circle"
+            ]
+        },
+        "protection": {
+            "ward": [
+                "holy ward",
+                "shadow ward",
+                "nature ward",
+                "fire ward",
+                "ice ward",
+                "lightning ward",
+                "water ward",
+                "air ward",
+                "earth ward",
+                "elemental ward",
+                "beast ward",
+                "undead ward",
+                "demon ward"
+            ],
+            "cloaks": [
+                "shadow cloak",
+                "nature cloak",
+                "fire cloak",
+                "ice cloak",
+                "lightning cloak",
+                "water cloak",
+                "air cloak",
+                "earth cloak",
+                "elemental cloak",
+                "beast cloak",
+                "undead cloak",
+                "demon cloak"
+            ],
+            "barrier": [
+                "holy barrier",
+                "shadow barrier",
+                "nature barrier",
+                "fire barrier",
+                "ice barrier",
+                "lightning barrier",
+                "water barrier",
+                "air barrier",
+                "earth barrier",
+                "elemental barrier",
+                "beast barrier",
+                "undead barrier",
+                "demon barrier"
+            ],
+            "shield": [
+                "holy shield",
+                "shadow shield",
+                "nature shield",
+                "fire shield",
+                "ice shield",
+                "lightning shield",
+                "water shield",
+                "air shield",
+                "earth shield",
+                "elemental shield",
+                "beast shield",
+                "undead shield",
+                "demon shield"
+            ]
+        },
+        "enchantment": {
+            "weapon": {
+                "cursed": [
+                    "unlucky strike",
+                    "poison cloud",
+                    "heal target",
+                    "reflect"
+                ],
+                "enhancement": [
+                    "speed",
+                    "strength",
+                    "dexterity",
+                    "damage"
+                ],
+                "amplification": [
+                    "strengthen",
+                    "weightless",
+                    "wind up"
+                ],
+                "skill": []
+            },
+            "armor": [],
+            "accessory": [],
+            "trinket": [],
+            "spellbook": []
+        },
+        "illusion": [],
+        "curse": [],
+        "alteration": [],
+        "ancient": []
+    }
+}

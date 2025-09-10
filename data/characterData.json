@@ -1,0 +1,1298 @@
+{
+    "races": {
+        "human": {
+            "racialAbilities": {
+                "adaptability": {
+                    "name": "Adaptability",
+                    "description": "Allows them to adapt quickly to most situations.",
+                    "effect": {
+                        "adapt": {
+                            "description": "situations are less stressfull.",
+                            "cooldown": "10 seconds",
+                            "success chance": "50%"
+                        }
+                    }
+                }
+            }
+        },
+        "elf": {
+            "racialAbilities": {
+                "elvenMagic": {
+                    "name": "Elven Magic",
+                    "description": "Elves are naturally attuned to nature and nature magic so they are more powerful when it comes to magic and dealing with plants, animals, and nature-based situations.",
+                    "effect": {
+                        "magic afinity": {
+                            "description": "Elves are more attuned to magic and master nature-based spells much faster than other races.",
+                            "cooldown": "10 seconds",
+                            "success chance": "50%"
+                        }
+                    }
+                },
+                "natureAffinity": {
+                    "name": "Nature Affinity",
+                    "description": "Elves are more attuned to nature and are far more skilled at dealing with nature-based situations.",
+                    "effect": {
+                        "nature affinity": {
+                            "description": "Nature-based situations are less stressful.",
+                            "cooldown": "10 seconds",
+                            "success chance": "50%"
+                        }
+                    }
+                }
+            }
+        },
+        "beastkin": {
+            "racialAbilities": {
+                "primalSenses": {
+                    "name": "Primal Senses",
+                    "description": "Possesses the heightened senses of a wild animal, making them difficult to ambush.",
+                    "effect": {
+                        "keenSenses": {
+                            "description": "Passively increases chance to detect hidden enemies, traps, and tracks.",
+                            "cooldown": "Passive",
+                            "success chance": "75%"
+                        }
+                    }
+                }
+            }
+        },
+        "elemental": {
+            "racialAbilities": {
+                "elementalAffinity": {
+                    "name": "Elemental Affinity",
+                    "description": "As a being of raw elemental energy, you are resistant to your own element but vulnerable to its opposite.",
+                    "effect": {
+                        "elementalResistance": {
+                            "description": "Grants resistance to a specific element (e.g., fire, ice) but also a weakness to its opposing element.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "undead": {
+            "racialAbilities": {
+                "willOfTheGrave": {
+                    "name": "Will of the Grave",
+                    "description": "Your undead nature makes you immune to poison and disease, and resistant to being charmed or put to sleep.",
+                    "effect": {
+                        "undeadNature": {
+                            "description": "Immune to poison, disease, and sleep effects. Vulnerable to holy and fire damage.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "dwarf": {
+            "racialAbilities": {
+                "stonecunning": {
+                    "name": "Stonecunning",
+                    "description": "Dwarves have a natural affinity for stone and metal, granting them superior crafting and mining skills.",
+                    "effect": {
+                        "masterCraftsman": {
+                            "description": "Increased success chance and quality when crafting or mining. Can spot unusual stonework.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
+                        }
+                    }
+                },
+                "dwarvenResilience": {
+                    "name": "Dwarven Resilience",
+                    "description": "Their hardy nature gives them a natural resistance to poisons and magic.",
+                    "effect": {
+                        "hardy": {
+                            "description": "High chance to resist poison and magical effects.",
+                            "cooldown": "Passive",
+                            "success chance": "60%"
+                        }
+                    }
+                }
+            }
+        },
+        "orc": {
+            "racialAbilities": {
+                "battleRage": {
+                    "name": "Battle Rage",
+                    "description": "In the heat of battle, an orc can enter a rage, ignoring pain and fighting with savage intensity.",
+                    "effect": {
+                        "berserk": {
+                            "description": "Temporarily increases attack and strength, but lowers defense. Can be activated once per combat.",
+                            "cooldown": "1 combat",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "gnome": {
+            "racialAbilities": {
+                "naturalIllusionist": {
+                    "name": "Natural Illusionist",
+                    "description": "Gnomes have an innate talent for minor illusions and trickery.",
+                    "effect": {
+                        "minorIllusion": {
+                            "description": "Can create a small sound or image to distract foes. High chance of success on non-magical creatures.",
+                            "cooldown": "30 seconds",
+                            "success chance": "80%"
+                        }
+                    }
+                }
+            }
+        },
+        "demon": {
+            "racialAbilities": {
+                "infernalResistance": {
+                    "name": "Infernal Resistance",
+                    "description": "Born of fire and shadow, demons possess a natural resistance to fire damage.",
+                    "effect": {
+                        "fireResistance": {
+                            "description": "Reduces incoming fire damage. Vulnerable to holy damage.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "lizardman": {
+            "racialAbilities": {
+                "regenerativeScales": {
+                    "name": "Regenerative Scales",
+                    "description": "Lizardmen can slowly regenerate from wounds and regrow lost limbs over time.",
+                    "effect": {
+                        "regeneration": {
+                            "description": "Slowly recovers health over time, both in and out of combat.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "halfling": {
+            "racialAbilities": {
+                "halflingLuck": {
+                    "name": "Halfling Luck",
+                    "description": "Halflings have an uncanny knack for avoiding disaster at the last second.",
+                    "effect": {
+                        "lucky": {
+                            "description": "Gives a chance to re-roll a failed skill check or saving throw once per day.",
+                            "cooldown": "1 day",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "tiefling": {
+            "racialAbilities": {
+                "hellishRebuke": {
+                    "name": "Hellish Rebuke",
+                    "description": "When hit by an enemy, a tiefling can use their reaction to lash out with infernal fire.",
+                    "effect": {
+                        "fireLash": {
+                            "description": "As a reaction to taking damage, deal fire damage back to the attacker.",
+                            "cooldown": "1 combat",
+                            "success chance": "90%"
+                        }
+                    }
+                }
+            }
+        },
+        "aasimar": {
+            "racialAbilities": {
+                "celestialResistance": {
+                    "name": "Celestial Resistance",
+                    "description": "Your celestial heritage grants you resistance to holy and necrotic damage.",
+                    "effect": {
+                        "divineBlood": {
+                            "description": "Reduces incoming holy and necrotic damage.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "angel": {
+            "racialAbilities": {
+                "healingHands": {
+                    "name": "Healing Hands",
+                    "description": "An angel can touch a creature to mend its wounds.",
+                    "effect": {
+                        "layOnHands": {
+                            "description": "Heal a target (or self) for a moderate amount of health. Usable once per day.",
+                            "cooldown": "1 day",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "shapeshifter": {
+            "racialAbilities": {
+                "transform": {
+                    "name": "Transform",
+                    "description": "Can assume the form of certain creatures they have studied or defeated.",
+                    "effect": {
+                        "changeShape": {
+                            "description": "Allows the use of the `transform <creature>` command.",
+                            "cooldown": "Varies",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "fiend": {
+            "racialAbilities": {
+                "darkness": {
+                    "name": "Darkness",
+                    "description": "Can magically create a sphere of magical darkness.",
+                    "effect": {
+                        "shroud": {
+                            "description": "Creates an area of darkness that blinds enemies and gives you an advantage on stealth checks.",
+                            "cooldown": "1 day",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "voidling": {
+            "racialAbilities": {
+                "voidwalk": {
+                    "name": "Voidwalk",
+                    "description": "Can briefly step into the void to teleport a short distance.",
+                    "effect": {
+                        "blink": {
+                            "description": "Instantly move to a nearby location, useful for escaping or repositioning.",
+                            "cooldown": "1 hour",
+                            "success chance": "100%"
+                        }
+                    }
+                }
+            }
+        },
+        "merfolk": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Android": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Arachnid": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Bee-men": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Birdmaids": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Cats": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Centaurs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Chimeras": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Cyclops": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Dagon": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Dragons (Semi-Dragons, Vouive, etc.)": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Demi-gods": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Dolls": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Dogs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Dream-Eaters": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Dryads": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Fairies": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Fernirs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Genies": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Ghosts": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Giants": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Goddesses": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Golems": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Hybrids (Unspecific)": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Hydra-people": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Hyenas": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Ifrits": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Incubi": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Jiangshis": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Lamias": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Leprechauns": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Low-Level Lilims": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Mandrakes": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Mists": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Monarchs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Monstrosities": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Mimics": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Minotaurs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Myconids": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Nymphs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Ogres": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Oni": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Ordinary Livestock (Goat, Cow, Pig, etc)": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Ordinary Sea Creatures (Fish, Snails, Shrimp, etc)": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Penguins": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Pixies": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Phantoms": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Puppets": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Rabbits": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Salamanders": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Sasquatches": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Satyrs": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Skeletons": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Slimes": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Spirits": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Succubi": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Treants": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Vampires": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Will o Wisps": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Witches": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        },
+        "Zombies": {
+            "racialAbilities": {
+                "racialAbilityName": {
+                    "name": "racialAbilityName",
+                    "description": "racialAbilityDescription",
+                    "effect": {
+                        "effectName": {
+                            "description": "effectDescription",
+                            "cooldown": "effectCooldown",
+                            "success chance": "effectSuccessChance"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "genders": [
+        "male",
+        "female",
+        "non-binary"
+    ],
+    "ages": {
+        "newborn": {
+            "min": 0,
+            "max": 1,
+            "display": "0-1 years"
+        },
+        "child": {
+            "min": 2,
+            "max": 11,
+            "display": "2-11 years"
+        },
+        "adolescent": {
+            "min": 12,
+            "max": 18,
+            "display": "12-18 years"
+        },
+        "young adult": {
+            "min": 19,
+            "max": 25,
+            "display": "19-25 years"
+        },
+        "adult": {
+            "min": 26,
+            "max": 65,
+            "display": "26-65 years"
+        },
+        "middle aged": {
+            "min": 66,
+            "max": 100,
+            "display": "66-100 years"
+        },
+        "senior": {
+            "min": 101,
+            "max": 500,
+            "display": "101-500 years"
+        },
+        "ancient": {
+            "min": 501,
+            "max": "Infinity",
+            "display": "501+ years"
+        }
+    },
+    "heights": {
+        "very short": {
+            "min": 0,
+            "max": 36,
+            "display": "0-3 ft"
+        },
+        "short": {
+            "min": 37,
+            "max": 59,
+            "display": "3ft 1in - 4ft 11in"
+        },
+        "average": {
+            "min": 60,
+            "max": 71,
+            "display": "5ft - 5ft 11in"
+        },
+        "tall": {
+            "min": 72,
+            "max": 83,
+            "display": "6ft - 6ft 11in"
+        },
+        "very tall": {
+            "min": 84,
+            "max": "Infinity",
+            "display": "7ft+"
+        }
+    },
+    "weights": [
+        "light",
+        "medium",
+        "average",
+        "heavy",
+        "very heavy"
+    ],
+    "classes": [
+        "warrior",
+        "paladin",
+        "ranger",
+        "sorcerer",
+        "druid",
+        "barbarian",
+        "monk",
+        "bard",
+        "druid",
+        "sorcerer",
+        "cleric",
+        "paladin",
+        "ranger",
+        "rogue",
+        "mage",
+        "warrior",
+        "mage",
+        "rogue",
+        "cleric"
+    ]
+}

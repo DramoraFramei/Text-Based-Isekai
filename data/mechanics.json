@@ -1,0 +1,186 @@
+{
+    "skills": {
+        "athletics": [
+            "cheetah sprint",
+            "artful dodge",
+            "windless"
+        ],
+        "acrobatics": [
+            "sure footing",
+            "lunge",
+            "dodge",
+            "top rope",
+            "thin line"
+        ],
+        "stealth": [
+            "sneak attack",
+            "hide",
+            "trap",
+            "smoke screen",
+            "mist walk",
+            "rhythm walk",
+            "hidden mark",
+            "shadow travel",
+            "sleight Of Hand"
+        ],
+        "intimidation": [
+            "burly",
+            "deeper voice"
+        ],
+        "persuasion": [
+            "silver tongue"
+        ],
+        "magic": [
+            "summoned armor",
+            "summoned weapons"
+        ]
+    },
+    "damage": {
+        "types": {
+            "fire": {
+                "name": "burning",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "ice": {
+                "name": "freezing",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "lightning": {
+                "name": "lightning",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "water": {
+                "name": "drowning",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "air": {
+                "name": "wind",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "earth": {
+                "name": "earth",
+                "minDamage": 2,
+                "maxDamage": 10,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "elemental": {
+                "name": "elemental",
+                "effects": [
+                    "fire",
+                    "ice",
+                    "lightning",
+                    "water",
+                    "air",
+                    "earth"
+                ],
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds",
+                "maxDuration": "until death"
+            },
+            "holy": {
+                "name": "holy",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "N/A",
+                "maxDuration": "N/A"
+            },
+            "necrotic": {
+                "name": "necrotic",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "N/A",
+                "maxDuration": "N/A"
+            },
+            "poison": {
+                "name": "poison",
+                "minDamage": 2,
+                "maxDamage": 1000,
+                "minDuration": "2 seconds"
+            },
+            "weapon": {
+                "type": {
+                    "bleeding": {
+                        "name": "bleeding",
+                        "minDamage": 2,
+                        "maxDamage": 1000,
+                        "minDuration": "2 seconds",
+                        "maxDuration": "until death"
+                    },
+                    "piercing": {
+                        "name": "piercing",
+                        "minDamage": 2,
+                        "maxDamage": 1000,
+                        "minDuration": "2 seconds",
+                        "maxDuration": "until death"
+                    },
+                    "slashing": {
+                        "name": "slashing",
+                        "minDamage": 2,
+                        "maxDamage": 1000,
+                        "minDuration": "2 seconds",
+                        "maxDuration": "until death"
+                    },
+                    "enchantment": {
+                        "name": "enchantment",
+                        "minDamage": 2,
+                        "maxDamage": 1000,
+                        "minDuration": "2 seconds",
+                        "maxDuration": "until death"
+                    },
+                    "magic": {
+                        "name": "magic",
+                        "minDamage": 2,
+                        "maxDamage": 1000,
+                        "minDuration": "2 seconds",
+                        "maxDuration": "until death",
+                        "effects": [
+                            "fire",
+                            "ice",
+                            "lightning",
+                            "water",
+                            "air",
+                            "earth",
+                            "elemental"
+                        ]
+                    },
+                    "bludgeoning": {
+                        "name": "bludgeoning",
+                        "minDamage": 2,
+                        "maxDamage": 1000,
+                        "minDuration": "2 seconds",
+                        "maxDuration": "until death"
+                    }
+                }
+            }
+        },
+        "effects": [
+            "fire",
+            "ice",
+            "lightning",
+            "water",
+            "air",
+            "earth",
+            "elemental",
+            "poison",
+            "holy",
+            "necrotic"
+        ]
+    }
+}

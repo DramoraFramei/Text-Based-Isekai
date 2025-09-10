@@ -1,0 +1,568 @@
+{
+    "items": {
+        "torch": {
+            "name": "Torch",
+            "description": "A wooden torch wrapped in oil-soaked rags. Provides light in dark places.",
+            "type": "tool",
+            "equipSlot": "offhand",
+            "maxDurability": 20,
+            "effect": "(target) => { target.addEffect = gameData.damage.types.fire; }",
+            "price": 10
+        },
+        "health_potion": {
+            "name": "Health Potion",
+            "description": "A small vial of red liquid that restores 25 health.",
+            "type": "consumable",
+            "stackable": true,
+            "effect": "(target) => { target.stats.health = Math.min(100, target.stats.health + 25); }",
+            "price": 25
+        },
+        "rusty_sword": {
+            "name": "Rusty Sword",
+            "description": "A simple, but effective, rusty sword.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 50,
+            "stats": {
+                "attack": 2
+            },
+            "price": 20
+        },
+        "leather_armor": {
+            "name": "Leather Armor",
+            "description": "A sturdy set of boiled leather armor.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 60,
+            "stats": {
+                "defense": 3
+            },
+            "price": 35
+        },
+        "rusty_pickaxe": {
+            "name": "Rusty Pickaxe",
+            "description": "A simple, rusty pickaxe. Better than nothing.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 80,
+            "miningBonus": 0
+        },
+        "lockpick": {
+            "name": "Lockpick",
+            "description": "A set of slender metal tools used for picking locks. Requires a steady hand.",
+            "type": "tool",
+            "stackable": true,
+            "price": 50
+        },
+        "stick": {
+            "name": "Stick",
+            "description": "A sturdy stick, suitable for various uses.",
+            "type": "material",
+            "stackable": true,
+            "price": 1
+        },
+        "cloth_scrap": {
+            "name": "Cloth Scrap",
+            "description": "A small piece of torn cloth.",
+            "type": "material",
+            "stackable": true,
+            "price": 2
+        },
+        "leather_scrap": {
+            "name": "Leather Scrap",
+            "description": "A scrap of leather, possibly from a defeated animal or old armor.",
+            "type": "material",
+            "stackable": true,
+            "price": 5
+        },
+        "thread": {
+            "name": "Thread",
+            "description": "A spool of sturdy thread for sewing.",
+            "type": "material",
+            "stackable": true,
+            "price": 3
+        },
+        "iron_ore": {
+            "name": "Iron Ore",
+            "description": "A chunk of raw, unrefined iron ore.",
+            "type": "material",
+            "stackable": true,
+            "price": 8
+        },
+        "copper_ore": {
+            "name": "Copper Ore",
+            "description": "A chunk of rock containing veins of copper.",
+            "type": "material",
+            "stackable": true,
+            "price": 12
+        },
+        "brass_ore": {
+            "name": "Brass Ore",
+            "description": "A yellowish ore that looks like a mix of copper and zinc.",
+            "type": "material",
+            "stackable": true,
+            "price": 15
+        },
+        "bronze_ore": {
+            "name": "Bronze Ore",
+            "description": "A dull, reddish-brown ore containing traces of copper and tin.",
+            "type": "material",
+            "stackable": true,
+            "price": 18
+        },
+        "pig_iron_ore": {
+            "name": "Pig Iron Ore",
+            "description": "A crude, high-carbon iron ore.",
+            "type": "material",
+            "stackable": true,
+            "price": 22
+        },
+        "steel_ore": {
+            "name": "Steel Ore",
+            "description": "A rare, natural formation of iron and carbon that resembles steel.",
+            "type": "material",
+            "stackable": true,
+            "price": 30
+        },
+        "titanium_ore": {
+            "name": "Titanium Ore",
+            "description": "A lightweight, dark grey ore that is surprisingly durable.",
+            "type": "material",
+            "stackable": true,
+            "price": 50
+        },
+        "mithril_ore": {
+            "name": "Mithril Ore",
+            "description": "A silvery, feather-light ore that hums with faint magical energy.",
+            "type": "material",
+            "stackable": true,
+            "price": 150
+        },
+        "adamantite_ore": {
+            "name": "Adamantite Ore",
+            "description": "An incredibly dense and hard black ore, almost impossible to break.",
+            "type": "material",
+            "stackable": true,
+            "price": 250
+        },
+        "iron_ingot": {
+            "name": "Iron Ingot",
+            "description": "A solid bar of refined iron, ready for smithing.",
+            "type": "material",
+            "stackable": true,
+            "price": 20
+        },
+        "copper_ingot": {
+            "name": "Copper Ingot",
+            "description": "A solid bar of refined copper.",
+            "type": "material",
+            "stackable": true,
+            "price": 30
+        },
+        "titanium_ingot": {
+            "name": "Titanium Ingot",
+            "description": "A bar of refined, lightweight titanium.",
+            "type": "material",
+            "stackable": true,
+            "price": 125
+        },
+        "mithril_ingot": {
+            "name": "Mithril Ingot",
+            "description": "A feather-light bar of shimmering, refined mithril.",
+            "type": "material",
+            "stackable": true,
+            "price": 350
+        },
+        "adamantite_ingot": {
+            "name": "Adamantite Ingot",
+            "description": "A bar of incredibly dense and durable adamantite.",
+            "type": "material",
+            "stackable": true,
+            "price": 600
+        },
+        "dragonite_ingot": {
+            "name": "Dragonite Ingot",
+            "description": "A bar of refined dragonite, shimmering with iridescent power.",
+            "type": "material",
+            "stackable": true,
+            "price": 1200
+        },
+        "celestial_steel_ingot": {
+            "name": "Celestial Steel Ingot",
+            "description": "A bar of refined celestial steel that glows with a soft, internal light.",
+            "type": "material",
+            "stackable": true,
+            "price": 2500
+        },
+        "primordial_steel_ingot": {
+            "name": "Primordial Steel Ingot",
+            "description": "A bar of refined primordial steel that seems to bend reality at its edges.",
+            "type": "material",
+            "stackable": true,
+            "price": 12000
+        },
+        "iron_sword": {
+            "name": "Iron Sword",
+            "description": "A sword forged from solid iron.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 120,
+            "stats": {
+                "attack": 5
+            },
+            "price": 100
+        },
+        "iron_plate_armor": {
+            "name": "Iron Plate Armor",
+            "description": "A full suit of plate armor forged from iron.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 120,
+            "stats": {
+                "defense": 5
+            },
+            "price": 150
+        },
+        "iron_pickaxe": {
+            "name": "Iron Pickaxe",
+            "description": "A sturdy pickaxe with a head made of iron.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 150,
+            "price": 80,
+            "miningBonus": 5
+        },
+        "copper_sword": {
+            "name": "Copper Sword",
+            "description": "A sword forged from solid copper.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 150,
+            "stats": {
+                "attack": 7
+            },
+            "price": 150
+        },
+        "copper_plate_armor": {
+            "name": "Copper Plate Armor",
+            "description": "A full suit of plate armor forged from copper.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 150,
+            "stats": {
+                "defense": 6
+            },
+            "price": 225
+        },
+        "copper_pickaxe": {
+            "name": "Copper Pickaxe",
+            "description": "A sturdy pickaxe with a head made of copper.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 180,
+            "price": 120,
+            "miningBonus": 8
+        },
+        "titanium_sword": {
+            "name": "Titanium Sword",
+            "description": "A sword forged from solid titanium.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 200,
+            "stats": {
+                "attack": 10
+            },
+            "price": 500
+        },
+        "titanium_plate_armor": {
+            "name": "Titanium Plate Armor",
+            "description": "A full suit of plate armor forged from titanium.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 200,
+            "stats": {
+                "defense": 8
+            },
+            "price": 750
+        },
+        "titanium_pickaxe": {
+            "name": "Titanium Pickaxe",
+            "description": "A sturdy pickaxe with a head made of titanium.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 250,
+            "price": 400,
+            "miningBonus": 12
+        },
+        "mithril_sword": {
+            "name": "Mithril Sword",
+            "description": "A sword forged from solid mithril.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 250,
+            "stats": {
+                "attack": 14
+            },
+            "price": 1500
+        },
+        "mithril_plate_armor": {
+            "name": "Mithril Plate Armor",
+            "description": "A full suit of plate armor forged from mithril.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 250,
+            "stats": {
+                "defense": 11
+            },
+            "price": 2250
+        },
+        "mithril_pickaxe": {
+            "name": "Mithril Pickaxe",
+            "description": "A sturdy pickaxe with a head made of mithril.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 300,
+            "price": 1200,
+            "miningBonus": 16
+        },
+        "adamantite_sword": {
+            "name": "Adamantite Sword",
+            "description": "A sword forged from solid adamantite.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 350,
+            "stats": {
+                "attack": 18
+            },
+            "price": 2500
+        },
+        "adamantite_plate_armor": {
+            "name": "Adamantite Plate Armor",
+            "description": "A full suit of plate armor forged from adamantite.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 350,
+            "stats": {
+                "defense": 15
+            },
+            "price": 3750
+        },
+        "adamantite_pickaxe": {
+            "name": "Adamantite Pickaxe",
+            "description": "A sturdy pickaxe with a head made of adamantite.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 400,
+            "price": 2000,
+            "miningBonus": 20
+        },
+        "dragonite_sword": {
+            "name": "Dragonite Sword",
+            "description": "A sword forged from solid dragonite.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 450,
+            "stats": {
+                "attack": 25
+            },
+            "price": 5000
+        },
+        "dragonite_plate_armor": {
+            "name": "Dragonite Plate Armor",
+            "description": "A full suit of plate armor forged from dragonite.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 450,
+            "stats": {
+                "defense": 20
+            },
+            "price": 7500
+        },
+        "dragonite_pickaxe": {
+            "name": "Dragonite Pickaxe",
+            "description": "A sturdy pickaxe with a head made of dragonite.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 500,
+            "price": 4000,
+            "miningBonus": 25
+        },
+        "celestial_steel_sword": {
+            "name": "Celestial Steel Sword",
+            "description": "A sword forged from solid celestial steel.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 600,
+            "stats": {
+                "attack": 35
+            },
+            "price": 10000
+        },
+        "celestial_steel_plate_armor": {
+            "name": "Celestial Steel Plate Armor",
+            "description": "A full suit of plate armor forged from celestial steel.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 600,
+            "stats": {
+                "defense": 28
+            },
+            "price": 15000
+        },
+        "celestial_steel_pickaxe": {
+            "name": "Celestial Steel Pickaxe",
+            "description": "A sturdy pickaxe with a head made of celestial steel.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 700,
+            "price": 8000,
+            "miningBonus": 30
+        },
+        "primordial_steel_sword": {
+            "name": "Primordial Steel Sword",
+            "description": "A sword forged from solid primordial steel.",
+            "type": "weapon",
+            "equipSlot": "weapon",
+            "maxDurability": 1000,
+            "stats": {
+                "attack": 50
+            },
+            "price": 50000
+        },
+        "primordial_steel_plate_armor": {
+            "name": "Primordial Steel Plate Armor",
+            "description": "A full suit of plate armor forged from primordial steel.",
+            "type": "armor",
+            "equipSlot": "chest",
+            "maxDurability": 1000,
+            "stats": {
+                "defense": 40
+            },
+            "price": 75000
+        },
+        "primordial_steel_pickaxe": {
+            "name": "Primordial Steel Pickaxe",
+            "description": "A sturdy pickaxe with a head made of primordial steel.",
+            "type": "tool",
+            "equipSlot": "weapon",
+            "maxDurability": 1200,
+            "price": 40000,
+            "miningBonus": 40
+        }
+    },
+    "potions": [],
+    "consumables": [],
+    "weapons": {
+        "categories": [
+            "bladed",
+            "blunt",
+            "ranged",
+            "magic"
+        ],
+        "types": {
+            "bladed": [
+                "sword",
+                "dagger",
+                "spiked mace",
+                "axe",
+                "spear",
+                "claw"
+            ],
+            "blunt": [
+                "hammer",
+                "non-spiked mace",
+                "flail",
+                "whip",
+                "club"
+            ],
+            "ranged": [
+                "bow",
+                "crossbow",
+                "throwing dagger",
+                "throwing knife",
+                "throwing star",
+                "throwing spear",
+                "throwing axe",
+                "ninja star",
+                "boom stick",
+                "firework rocket",
+                "longbow",
+                "shortbow",
+                "sling"
+            ],
+            "magic": [
+                "staff",
+                "wand",
+                "scroll",
+                "spellbook",
+                "enchanted weapons"
+            ]
+        }
+    },
+    "armor": {
+        "categories": [
+            "non-armor",
+            "light",
+            "medium",
+            "heavy",
+            "magic"
+        ],
+        "types": {
+            "non-armor": [
+                "clothing",
+                "robes"
+            ],
+            "light": [
+                "leather",
+                "hide"
+            ],
+            "medium": [
+                "chainmail",
+                "scaled",
+                "ringed"
+            ],
+            "heavy": [
+                "plate"
+            ],
+            "magic": [
+                "enchanted armor",
+                "mage robes"
+            ]
+        }
+    },
+    "accessories": [
+        "rings",
+        "trinkets",
+        "necklace",
+        "earrings",
+        "belt"
+    ],
+    "metals": [
+        "iron",
+        "copper",
+        "brass",
+        "bronze",
+        "pig iron",
+        "steel",
+        "titanium",
+        "mithril",
+        "adamant",
+        "dragonite",
+        "celestial steel",
+        "primordial steel"
+    ],
+    "trinkets": [
+        "necklaces",
+        "earrings",
+        "rings",
+        "belts",
+        "bracelets",
+        "charms"
+    ],
+    "necklaces": [],
+    "earrings": [],
+    "rings": [],
+    "belts": [],
+    "bracelets": [],
+    "charms": []
+}
