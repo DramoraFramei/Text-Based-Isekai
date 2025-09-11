@@ -1,6 +1,6 @@
 {
   "name": "text-based-isekai",
-  "version": "1.0.0",
+  "version": "0.0.01-alpha",
   "description": "",
   "main": "game.js",
   "scripts": {
