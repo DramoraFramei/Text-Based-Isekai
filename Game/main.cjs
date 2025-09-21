@@ -67,7 +67,7 @@ async function promptPlayerInfo () {
 async function promptPlayerName () {
   let firstName = ''
   let lastName = ''
-  
+
   // Get first name
   while (!firstName) {
     firstName = await askQuestion('What is your first name? ')
@@ -75,7 +75,7 @@ async function promptPlayerName () {
       console.log('Please enter a valid first name.')
     }
   }
-  
+
   // Get last name
   while (!lastName) {
     lastName = await askQuestion('What is your last name? ')
@@ -83,7 +83,7 @@ async function promptPlayerName () {
       console.log('Please enter a valid last name.')
     }
   }
-  
+
   playerCharacter.firstName = firstName
   playerCharacter.lastName = lastName
   console.log(`Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
@@ -325,7 +325,7 @@ async function showCharacterSummary () {
   console.log('\n' + '='.repeat(50))
   console.log('📋 CHARACTER SUMMARY')
   console.log('='.repeat(50))
-  console.log(`Name: ${playerCharacter.name}`)
+  console.log(`Name: ${playerCharacter.firstName} ${playerCharacter.lastName}`)
   console.log(`Race: ${playerCharacter.race.charAt(0).toUpperCase() + playerCharacter.race.slice(1)}`)
   console.log(`Class: ${playerCharacter.class.charAt(0).toUpperCase() + playerCharacter.class.slice(1)}`)
   console.log(`Gender: ${playerCharacter.gender.charAt(0).toUpperCase() + playerCharacter.gender.slice(1)}`)
@@ -358,7 +358,7 @@ async function showCharacterSummary () {
 // Step 9: Complete character creation and update game
 function completeCharacterCreation () {
   console.log('\n🎉 Character creation complete!')
-  console.log(`Welcome to Aethel, ${playerCharacter.name} the ${playerCharacter.race} ${playerCharacter.class}!`)
+  console.log(`Welcome to Aethel, ${playerCharacter.firstName} ${playerCharacter.lastName} the ${playerCharacter.race} ${playerCharacter.class}!`)
   console.log('\nYour adventure begins now...\n')
 
   rl.close()
