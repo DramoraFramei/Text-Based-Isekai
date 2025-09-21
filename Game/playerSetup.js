@@ -62,7 +62,6 @@ function askQuestion (question) {
 
 // Step 1: Get player name
 async function promptPlayerName () {
-  let name = ''
   let firstName = ''
   let lastName = ''
   while (!firstName) {
