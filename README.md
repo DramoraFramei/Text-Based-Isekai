@@ -20,7 +20,29 @@ This game is a purely text-based experience. You interact with the world by typi
 
 ## 🚀 How to Play
 
+### Running the Game
+
+### Game Commands
+
 1. **Start the game:** Run the application to begin your adventure.
+   There are two ways to run the Text-Based Isekai game:
+
+#### Option 1: Using the Executable (Recommended)
+
+1. Navigate to the `Game/dist/` folder
+2. Double-click `text-based-isekai.exe` to start the game
+3. The game will open in a console window
+
+#### Option 2: Using the Test Batch File
+
+1. Navigate to the `Game/` folder
+2. Double-click `test-exe.bat` to launch the game
+3. This will automatically run the executable for you
+
+> **Note:** The executable is completely standalone and doesn't require Node.js to be installed on your computer.
+> If you prefer to run the game using Node.js, you can do so by following these steps:
+
+1. **Install Node.js:** If you haven't already, download and install Node.js from [nodejs.org](https://nodejs.org/).
 2. **Read the text:** Pay close attention to the descriptions of your location, events, and available options.
 3. **Enter commands:** Type your desired action into the command prompt and press Enter. Common commands include:
     * `look` or `l`: To get a description of your current surroundings.
