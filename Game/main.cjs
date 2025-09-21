@@ -15,7 +15,8 @@ const rl = createInterface({
 
 // Player character object
 const playerCharacter = {
-  name: '',
+  firstName: '',
+  lastName: '',
   race: '',
   class: '',
   gender: '',
@@ -64,15 +65,28 @@ async function promptPlayerInfo () {
 
 // Step 1: Get player name
 async function promptPlayerName () {
-  let name = ''
-  while (!name) {
-    name = await askQuestion('What is your name? ')
-    if (!name) {
-      console.log('Please enter a valid name.')
+  let firstName = ''
+  let lastName = ''
+  
+  // Get first name
+  while (!firstName) {
+    firstName = await askQuestion('What is your first name? ')
+    if (!firstName) {
+      console.log('Please enter a valid first name.')
     }
   }
-  playerCharacter.name = name
-  console.log(`Welcome, ${name}! Let's continue with your character creation.\n`)
+  
+  // Get last name
+  while (!lastName) {
+    lastName = await askQuestion('What is your last name? ')
+    if (!lastName) {
+      console.log('Please enter a valid last name.')
+    }
+  }
+  
+  playerCharacter.firstName = firstName
+  playerCharacter.lastName = lastName
+  console.log(`Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
   await promptPlayerRace()
 }
 
