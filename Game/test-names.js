@@ -11,7 +11,7 @@ const testPlayer = {
   lastName: ''
 }
 
-function askQuestion(question) {
+function askQuestion (question) {
   return new Promise((resolve) => {
     rl.question(question, (answer) => {
       resolve(answer.trim())
@@ -19,12 +19,12 @@ function askQuestion(question) {
   })
 }
 
-async function testNamePrompt() {
+async function testNamePrompt () {
   console.log('Testing firstName and lastName input...\n')
-  
+
   let firstName = ''
   let lastName = ''
-  
+
   // Get first name
   while (!firstName) {
     firstName = await askQuestion('What is your first name? ')
@@ -32,7 +32,7 @@ async function testNamePrompt() {
       console.log('Please enter a valid first name.')
     }
   }
-  
+
   // Get last name
   while (!lastName) {
     lastName = await askQuestion('What is your last name? ')
@@ -40,13 +40,13 @@ async function testNamePrompt() {
       console.log('Please enter a valid last name.')
     }
   }
-  
+
   testPlayer.firstName = firstName
   testPlayer.lastName = lastName
-  
+
   console.log(`\nSuccess! Full name: ${testPlayer.firstName} ${testPlayer.lastName}`)
   console.log('\nFirst and last name functionality is working correctly!')
-  
+
   rl.close()
 }
 
