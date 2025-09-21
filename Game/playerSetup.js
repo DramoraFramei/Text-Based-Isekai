@@ -63,7 +63,7 @@ function askQuestion (question) {
 async function promptPlayerName () {
   let firstName = ''
   let lastName = ''
-  
+
   // Get first name
   while (!firstName) {
     firstName = await askQuestion('What is your first name? ')
@@ -71,7 +71,7 @@ async function promptPlayerName () {
       console.log('Please enter a valid first name.')
     }
   }
-  
+
   // Get last name
   while (!lastName) {
     lastName = await askQuestion('What is your last name? ')
@@ -79,7 +79,7 @@ async function promptPlayerName () {
       console.log('Please enter a valid last name.')
     }
   }
-  
+
   playerCharacter.firstName = firstName
   playerCharacter.lastName = lastName
   console.log(`Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
