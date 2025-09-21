@@ -279,14 +279,14 @@
         },
         "merfolk": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "aquaticMastery": {
+                    "name": "Aquatic Mastery",
+                    "description": "Merfolk are born of the sea and possess natural swimming abilities and water breathing, allowing them to thrive in aquatic environments.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "waterBreathing": {
+                            "description": "Can breathe underwater indefinitely and swim at incredible speeds. Reduced movement on land.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
                         }
                     }
                 }
@@ -294,14 +294,14 @@
         },
         "Android": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "mechanicalResilience": {
+                    "name": "Mechanical Resilience",
+                    "description": "Androids are artificial beings with mechanical bodies, granting them immunity to biological effects but vulnerability to electrical and electromagnetic interference.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "artificialNature": {
+                            "description": "Immune to poison, disease, fatigue, and mind control. Vulnerable to electrical damage and EMP effects.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
                         }
                     }
                 }
@@ -309,14 +309,14 @@
         },
         "Arachnid": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "webSpinning": {
+                    "name": "Web Spinning",
+                    "description": "Arachnids can produce strong, sticky webs to trap enemies and create environmental advantages.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "webTrap": {
+                            "description": "Can create webs to slow or trap enemies. Also grants climbing abilities on walls and ceilings.",
+                            "cooldown": "30 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -324,14 +324,14 @@
         },
         "Bee-men": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "hiveCoordination": {
+                    "name": "Hive Coordination",
+                    "description": "Bee-men work best in groups and can produce honey with healing properties and communicate through pheromones.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "teamwork": {
+                            "description": "Gains bonuses when fighting alongside allies. Can produce healing honey and sense danger through pheromones.",
+                            "cooldown": "60 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -339,14 +339,14 @@
         },
         "Birdmaids": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "aerialGrace": {
+                    "name": "Aerial Grace",
+                    "description": "Birdmaids possess the gift of flight and exceptional eyesight, allowing them to soar through the skies and spot details from great distances.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "flight": {
+                            "description": "Can fly and hover, gaining aerial movement and enhanced perception. Vulnerable to strong winds and enclosed spaces.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
                         }
                     }
                 }
@@ -354,14 +354,14 @@
         },
         "Cats": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "felineReflexes": {
+                    "name": "Feline Reflexes",
+                    "description": "Cats possess supernatural agility and always land on their feet, granting them exceptional dodge capabilities and night vision.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "nineLives": {
+                            "description": "Enhanced dodge chance, fall damage immunity, and superior night vision. Can squeeze through tight spaces.",
+                            "cooldown": "Passive",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -369,14 +369,14 @@
         },
         "Centaurs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "chargeAttack": {
+                    "name": "Charge Attack",
+                    "description": "Centaurs combine human intellect with equine strength and speed, capable of devastating charge attacks and superior archery skills.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "trampling": {
+                            "description": "Can perform powerful charge attacks that deal extra damage. Enhanced movement speed and archery accuracy.",
+                            "cooldown": "45 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -384,14 +384,14 @@
         },
         "Chimeras": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "multiFormNature": {
+                    "name": "Multi-Form Nature",
+                    "description": "Chimeras possess traits from multiple creatures, granting them diverse abilities and resistances from their various animal parts.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "adaptiveTraits": {
+                            "description": "Can access different abilities based on dominant animal traits. Resistant to various damage types but unstable in form.",
+                            "cooldown": "120 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -399,14 +399,14 @@
         },
         "Cyclops": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "trueSight": {
+                    "name": "True Sight",
+                    "description": "Cyclops possess a single, powerful eye that can see through illusions and focus energy into devastating eye beams.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "eyeBeam": {
+                            "description": "Can fire a powerful energy beam from their eye and see through all illusions and invisible entities.",
+                            "cooldown": "90 seconds",
+                            "success chance": "95%"
                         }
                     }
                 }
@@ -414,14 +414,14 @@
         },
         "Dagon": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "deepWaterCommand": {
+                    "name": "Deep Water Command",
+                    "description": "Dagon are ancient sea entities with command over water and storms, capable of summoning tidal forces and commanding sea creatures.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "tideControl": {
+                            "description": "Can manipulate water currents, summon storms, and command aquatic creatures. Enhanced underwater abilities.",
+                            "cooldown": "180 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -429,14 +429,14 @@
         },
         "Dragons (Semi-Dragons, Vouive, etc.)": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "dragonBreath": {
+                    "name": "Dragon Breath",
+                    "description": "Dragons and their kin possess mighty breath weapons, scaled hide for protection, and ancient magical knowledge.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "elementalBreath": {
+                            "description": "Can breathe elemental attacks (fire, ice, lightning, etc.). Natural armor and resistance to magic.",
+                            "cooldown": "60 seconds",
+                            "success chance": "100%"
                         }
                     }
                 }
@@ -444,14 +444,14 @@
         },
         "Demi-gods": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "divineBlessing": {
+                    "name": "Divine Blessing",
+                    "description": "Demi-gods possess partial divine essence, granting them supernatural abilities and resistance to mortal ailments.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "celestialPower": {
+                            "description": "Enhanced all attributes, resistance to negative effects, and can call upon minor divine interventions.",
+                            "cooldown": "300 seconds",
+                            "success chance": "95%"
                         }
                     }
                 }
@@ -459,14 +459,14 @@
         },
         "Dolls": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "artificialLife": {
+                    "name": "Artificial Life",
+                    "description": "Dolls are animated constructs that feel no pain and can be repaired rather than healed, but are vulnerable to specific types of damage.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "constructNature": {
+                            "description": "Immune to pain, fear, and biological effects. Can be repaired with materials instead of healing magic.",
+                            "cooldown": "Passive",
+                            "success chance": "100%"
                         }
                     }
                 }
@@ -474,14 +474,14 @@
         },
         "Dogs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "loyalCompanion": {
+                    "name": "Loyal Companion",
+                    "description": "Dogs possess unwavering loyalty, keen scent tracking abilities, and natural pack hunting instincts.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "packMentality": {
+                            "description": "Enhanced tracking abilities, bonus when fighting alongside allies, and can sense emotions and intentions.",
+                            "cooldown": "Passive",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -489,14 +489,14 @@
         },
         "Dream-Eaters": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "psychicDrain": {
+                    "name": "Psychic Drain",
+                    "description": "Dream-Eaters feed on thoughts, dreams, and psychic energy, capable of entering minds and causing sleep effects.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "mentalVampirism": {
+                            "description": "Can drain enemy mana/stamina through psychic attacks and cause sleep or confusion effects.",
+                            "cooldown": "90 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -504,14 +504,14 @@
         },
         "Dryads": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "treeHeart": {
+                    "name": "Tree Heart",
+                    "description": "Dryads have a deep connection with nature, gaining power from forests and capable of plant magic.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "natureControl": {
+                            "description": "Can control plant life, create barriers of thorns, and regenerate health while in natural environments.",
+                            "cooldown": "120 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -519,14 +519,14 @@
         },
         "Fairies": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "pixieDust": {
+                    "name": "Pixie Dust",
+                    "description": "Fairies are magical beings with the ability to fly and cast enchantments with their mystical dust.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "flightAndMagic": {
+                            "description": "Can fly to avoid ground attacks and cast charm, shrink, or confusion spells on enemies.",
+                            "cooldown": "60 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -534,14 +534,14 @@
         },
         "Fernirs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "wolfPack": {
+                    "name": "Wolf Pack",
+                    "description": "Fernirs are powerful wolf-like beings with pack hunting instincts and enhanced senses.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "packHunter": {
+                            "description": "Gains damage bonus when fighting alongside allies and can track enemies through scent.",
+                            "cooldown": "45 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -549,14 +549,14 @@
         },
         "Genies": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "wishMagic": {
+                    "name": "Wish Magic",
+                    "description": "Genies are powerful magical beings capable of granting wishes and manipulating reality on a limited scale.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "minorWish": {
+                            "description": "Can cast powerful spells, manipulate elements, and grant small beneficial effects to allies.",
+                            "cooldown": "150 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -564,14 +564,14 @@
         },
         "Ghosts": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "spectralForm": {
+                    "name": "Spectral Form",
+                    "description": "Ghosts are incorporeal beings that can phase through physical matter and drain life energy.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "phaseWalk": {
+                            "description": "Can become intangible to avoid physical attacks and drain health from enemies on contact.",
+                            "cooldown": "75 seconds",
+                            "success chance": "70%"
                         }
                     }
                 }
@@ -579,14 +579,14 @@
         },
         "Giants": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "colossalMight": {
+                    "name": "Colossal Might",
+                    "description": "Giants possess enormous size and strength, capable of devastating physical attacks and intimidation.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "crushingBlow": {
+                            "description": "Deals massive damage with area effect attacks and can intimidate smaller enemies into fleeing.",
+                            "cooldown": "80 seconds",
+                            "success chance": "95%"
                         }
                     }
                 }
@@ -594,14 +594,14 @@
         },
         "Goddesses": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "divineGrace": {
+                    "name": "Divine Grace",
+                    "description": "Goddesses wield divine power and can bestow blessings or call upon celestial forces.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "divineBlessings": {
+                            "description": "Can heal allies, purify negative effects, and summon divine light to damage undead enemies.",
+                            "cooldown": "120 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -609,14 +609,14 @@
         },
         "Golems": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "constructBody": {
+                    "name": "Construct Body",
+                    "description": "Golems are artificial beings made of stone, metal, or clay with incredible durability and magical resistance.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "stoneForm": {
+                            "description": "Immune to poison and disease, highly resistant to magic, and can repair themselves over time.",
+                            "cooldown": "150 seconds",
+                            "success chance": "100%"
                         }
                     }
                 }
@@ -624,14 +624,14 @@
         },
         "Hybrids (Unspecific)": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "adaptiveNature": {
+                    "name": "Adaptive Nature",
+                    "description": "Hybrids possess traits from multiple races, allowing for versatile abilities and adaptation.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "versatility": {
+                            "description": "Can temporarily mimic racial abilities from other races and adapt to different combat situations.",
+                            "cooldown": "90 seconds",
+                            "success chance": "70%"
                         }
                     }
                 }
@@ -639,14 +639,14 @@
         },
         "Hydra-people": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "multiHeaded": {
+                    "name": "Multi-Headed",
+                    "description": "Hydra-people have multiple heads granting enhanced awareness and regenerative abilities.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "regeneration": {
+                            "description": "Can regenerate from wounds quickly and has multiple consciousness streams for enhanced reflexes.",
+                            "cooldown": "100 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -654,14 +654,14 @@
         },
         "Hyenas": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "scavengerPack": {
+                    "name": "Scavenger Pack",
+                    "description": "Hyenas are cunning pack hunters with powerful jaws and the ability to find resources in harsh environments.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "crushingBite": {
+                            "description": "Delivers devastating bite attacks and can locate hidden items or weakened enemies.",
+                            "cooldown": "65 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -669,14 +669,14 @@
         },
         "Ifrits": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "fireElemental": {
+                    "name": "Fire Elemental",
+                    "description": "Ifrits are powerful fire djinn capable of manipulating flames and surviving in extreme heat.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "flameControl": {
+                            "description": "Can create fire attacks, become immune to heat damage, and ignite enemies on contact.",
+                            "cooldown": "85 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -684,14 +684,14 @@
         },
         "Incubi": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "charmingAura": {
+                    "name": "Charming Aura",
+                    "description": "Incubi are seductive demons that can manipulate emotions and drain energy through attraction.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "seduction": {
+                            "description": "Can charm enemies to fight for them temporarily and drain stamina through emotional manipulation.",
+                            "cooldown": "110 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -699,14 +699,14 @@
         },
         "Jiangshis": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "hopingUndead": {
+                    "name": "Hoping Undead",
+                    "description": "Jiangshis are Chinese vampires that move by hopping and possess supernatural strength and life-draining abilities.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "lifeDrain": {
+                            "description": "Can drain life force from enemies to heal themselves and move with supernatural speed despite rigid form.",
+                            "cooldown": "95 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -714,14 +714,14 @@
         },
         "Lamias": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "serpentLower": {
+                    "name": "Serpent Lower",
+                    "description": "Lamias have snake-like lower bodies granting enhanced mobility and the ability to constrict enemies.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "constrict": {
+                            "description": "Can wrap around enemies to immobilize them and delivers venomous strikes with enhanced reach.",
+                            "cooldown": "70 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -729,14 +729,14 @@
         },
         "Leprechauns": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "luckyCharm": {
+                    "name": "Lucky Charm",
+                    "description": "Leprechauns are magical beings associated with luck, mischief, and the ability to find and create gold.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "fortunesFavor": {
+                            "description": "Can increase critical hit chances, find rare items, and conjure temporary gold for transactions.",
+                            "cooldown": "60 seconds",
+                            "success chance": "65%"
                         }
                     }
                 }
@@ -744,14 +744,14 @@
         },
         "Low-Level Lilims": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "succubusCharm": {
+                    "name": "Succubus Charm",
+                    "description": "Low-Level Lilims are lesser demons with seductive powers and the ability to manipulate desires.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "emotionalDrain": {
+                            "description": "Can charm enemies briefly and drain small amounts of mana through seductive influence.",
+                            "cooldown": "80 seconds",
+                            "success chance": "70%"
                         }
                     }
                 }
@@ -759,14 +759,14 @@
         },
         "Mandrakes": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "poisonousScream": {
+                    "name": "Poisonous Scream",
+                    "description": "Mandrakes are plant-like beings whose screams can paralyze enemies and whose roots contain toxic properties.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "paralyticCry": {
+                            "description": "Can emit a scream that stuns enemies and release toxic spores that poison nearby foes.",
+                            "cooldown": "90 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -774,14 +774,14 @@
         },
         "Mists": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "vaporForm": {
+                    "name": "Vapor Form",
+                    "description": "Mists are ethereal beings made of living fog with the ability to become incorporeal and cloud vision.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "mistWalk": {
+                            "description": "Can become incorporeal to avoid attacks and create fog clouds that blind enemies.",
+                            "cooldown": "100 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -789,14 +789,14 @@
         },
         "Monarchs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "royalCommand": {
+                    "name": "Royal Command",
+                    "description": "Monarchs possess natural leadership abilities and can inspire allies while commanding respect from enemies.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "inspireAllies": {
+                            "description": "Can boost ally performance and intimidate enemies with royal presence and commanding voice.",
+                            "cooldown": "120 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -804,14 +804,14 @@
         },
         "Monstrosities": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "aberrantForm": {
+                    "name": "Aberrant Form",
+                    "description": "Monstrosities are twisted beings with chaotic abilities and unpredictable powers that defy natural law.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "chaosStrike": {
+                            "description": "Can perform unpredictable attacks with random effects and resist mental influences due to alien nature.",
+                            "cooldown": "85 seconds",
+                            "success chance": "60%"
                         }
                     }
                 }
@@ -819,14 +819,14 @@
         },
         "Mimics": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "shapeshift": {
+                    "name": "Shapeshift",
+                    "description": "Mimics can perfectly imitate objects and other creatures, making them masters of deception and ambush.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "perfectDisguise": {
+                            "description": "Can transform into objects to hide or copy enemy abilities temporarily during combat.",
+                            "cooldown": "95 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -834,14 +834,14 @@
         },
         "Minotaurs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "bullRush": {
+                    "name": "Bull Rush",
+                    "description": "Minotaurs are powerful bull-headed beings with incredible strength and an innate sense of direction.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "chargingAttack": {
+                            "description": "Can perform devastating charging attacks and never get lost in mazes or complex terrain.",
+                            "cooldown": "70 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -849,14 +849,14 @@
         },
         "Myconids": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "sporalNetwork": {
+                    "name": "Sporal Network",
+                    "description": "Myconids are fungal beings that communicate through spores and can release toxic or hallucinogenic clouds.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "sporalCloud": {
+                            "description": "Can release spore clouds that confuse enemies or communicate with other fungal creatures.",
+                            "cooldown": "110 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -864,14 +864,14 @@
         },
         "Nymphs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "naturalMagic": {
+                    "name": "Natural Magic",
+                    "description": "Nymphs are nature spirits with powerful magical abilities tied to natural elements like water, earth, or air.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "elementalControl": {
+                            "description": "Can control one specific natural element based on their type and heal in natural environments.",
+                            "cooldown": "90 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -879,14 +879,14 @@
         },
         "Ogres": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "brutishStrength": {
+                    "name": "Brutish Strength",
+                    "description": "Ogres possess overwhelming physical power and can regenerate health by consuming defeated enemies.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "smashAttack": {
+                            "description": "Can deliver crushing blows with area damage and consume fallen foes to recover health.",
+                            "cooldown": "75 seconds",
+                            "success chance": "95%"
                         }
                     }
                 }
@@ -894,14 +894,14 @@
         },
         "Oni": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "demonicPower": {
+                    "name": "Demonic Power",
+                    "description": "Oni are powerful Japanese demons with supernatural strength, magical abilities, and fierce temperaments.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "rageStrike": {
+                            "description": "Can enter berserker rage for increased damage and use demonic magic to intimidate enemies.",
+                            "cooldown": "100 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -909,14 +909,14 @@
         },
         "Ordinary Livestock (Goat, Cow, Pig, etc)": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "farmAnimal": {
+                    "name": "Farm Animal",
+                    "description": "Ordinary livestock have simple but practical abilities like foraging, strong stomachs, and domestic instincts.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "simpleLiving": {
+                            "description": "Can find food easily, resist poison from spoiled food, and provide resources through natural products.",
+                            "cooldown": "30 seconds",
+                            "success chance": "95%"
                         }
                     }
                 }
@@ -924,14 +924,14 @@
         },
         "Ordinary Sea Creatures (Fish, Snails, Shrimp, etc)": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "aquaticLife": {
+                    "name": "Aquatic Life",
+                    "description": "Ordinary sea creatures are perfectly adapted to underwater life with swimming abilities and water breathing.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "waterMastery": {
+                            "description": "Can breathe underwater, swim at high speeds, and sense vibrations through water currents.",
+                            "cooldown": "45 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -939,14 +939,14 @@
         },
         "Penguins": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "arcticSurvival": {
+                    "name": "Arctic Survival",
+                    "description": "Penguins are cold-adapted creatures with excellent swimming abilities and social cooperation skills.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "coldResistance": {
+                            "description": "Immune to cold damage, can slide quickly on ice, and work together effectively in groups.",
+                            "cooldown": "50 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -954,14 +954,14 @@
         },
         "Pixies": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "tinyMagic": {
+                    "name": "Tiny Magic",
+                    "description": "Pixies are tiny magical beings with the ability to fly and cast minor enchantments with their fairy dust.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "miniatureFlight": {
+                            "description": "Can fly to avoid attacks, become very small to hide, and cast minor illusion and charm spells.",
+                            "cooldown": "55 seconds",
+                            "success chance": "70%"
                         }
                     }
                 }
@@ -969,14 +969,14 @@
         },
         "Phantoms": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "etherealPhase": {
+                    "name": "Ethereal Phase",
+                    "description": "Phantoms are ghostly beings that can phase between physical and ethereal planes at will.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "phaseShift": {
+                            "description": "Can become intangible to avoid physical attacks and pass through solid objects temporarily.",
+                            "cooldown": "85 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -984,14 +984,14 @@
         },
         "Puppets": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "stringControl": {
+                    "name": "String Control",
+                    "description": "Puppets are animated constructs that can manipulate their own strings and control other puppet-like objects.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "marionetteMaster": {
+                            "description": "Can control their own movement with precision and briefly manipulate enemy movements like a puppeteer.",
+                            "cooldown": "95 seconds",
+                            "success chance": "65%"
                         }
                     }
                 }
@@ -999,14 +999,14 @@
         },
         "Rabbits": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "quickHop": {
+                    "name": "Quick Hop",
+                    "description": "Rabbits have incredible speed and agility, with powerful leg muscles for jumping and quick escapes.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "speedBurst": {
+                            "description": "Can move at extreme speeds for short bursts and make powerful jumping attacks or quick retreats.",
+                            "cooldown": "40 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -1014,14 +1014,14 @@
         },
         "Salamanders": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "fireAffinity": {
+                    "name": "Fire Affinity",
+                    "description": "Salamanders are fire-based reptilian creatures with the ability to generate and control flames.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "flameBreath": {
+                            "description": "Can breathe fire, resist heat damage, and regenerate health when near fire sources.",
+                            "cooldown": "80 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -1029,14 +1029,14 @@
         },
         "Sasquatches": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "wildStrength": {
+                    "name": "Wild Strength",
+                    "description": "Sasquatches are massive forest-dwelling creatures with incredible strength and natural camouflage abilities.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "forestBlend": {
+                            "description": "Can become nearly invisible in natural environments and deliver devastating strength-based attacks.",
+                            "cooldown": "90 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -1044,14 +1044,14 @@
         },
         "Satyrs": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "wildRevel": {
+                    "name": "Wild Revel",
+                    "description": "Satyrs are part-goat beings with musical abilities and the power to inspire revelry and confusion.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "panicSong": {
+                            "description": "Can play music that causes enemies to flee in panic or allies to become inspired and energized.",
+                            "cooldown": "75 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -1059,14 +1059,14 @@
         },
         "Skeletons": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "undeadResilience": {
+                    "name": "Undead Resilience",
+                    "description": "Skeletons are animated bones with immunity to many biological effects and the ability to reassemble.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "boneRegeneration": {
+                            "description": "Immune to poison, disease, and fatigue effects. Can partially reassemble from bone fragments.",
+                            "cooldown": "120 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -1074,14 +1074,14 @@
         },
         "Slimes": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "fluidForm": {
+                    "name": "Fluid Form",
+                    "description": "Slimes are gelatinous creatures that can change shape, absorb materials, and split into smaller versions.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "absorption": {
+                            "description": "Can absorb small objects for temporary abilities and squeeze through tight spaces.",
+                            "cooldown": "60 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -1089,14 +1089,14 @@
         },
         "Spirits": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "etherealNature": {
+                    "name": "Ethereal Nature",
+                    "description": "Spirits are supernatural beings with connections to elemental forces and the ability to interact with both physical and spiritual realms.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "spiritWalk": {
+                            "description": "Can become partially incorporeal and communicate with other spirits or ghosts.",
+                            "cooldown": "100 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -1104,14 +1104,14 @@
         },
         "Succubi": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "seductivePower": {
+                    "name": "Seductive Power",
+                    "description": "Succubi are powerful demons that drain life energy through seduction and can manipulate desires.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "lifeDrain": {
+                            "description": "Can charm enemies, drain their life force through physical contact, and gain strength from the energy.",
+                            "cooldown": "110 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -1119,14 +1119,14 @@
         },
         "Treants": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "ancientWisdom": {
+                    "name": "Ancient Wisdom",
+                    "description": "Treants are ancient tree-shepherds with deep forest magic and the ability to control plant life.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "forestLord": {
+                            "description": "Can command trees and plants to aid in battle and heal rapidly when rooted in soil.",
+                            "cooldown": "140 seconds",
+                            "success chance": "90%"
                         }
                     }
                 }
@@ -1134,14 +1134,14 @@
         },
         "Vampires": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "bloodThirst": {
+                    "name": "Blood Thirst",
+                    "description": "Vampires are undead creatures with enhanced physical abilities, life-draining fangs, and supernatural charm.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "vampiricBite": {
+                            "description": "Can drain blood to heal wounds, gain enhanced strength at night, and charm victims.",
+                            "cooldown": "100 seconds",
+                            "success chance": "85%"
                         }
                     }
                 }
@@ -1149,14 +1149,14 @@
         },
         "Will o Wisps": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "misleadingLight": {
+                    "name": "Misleading Light",
+                    "description": "Will o Wisps are floating lights that can lead travelers astray and manipulate their own luminescence.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "hypnoticGlow": {
+                            "description": "Can create confusing light patterns that disorient enemies and become invisible by dimming their glow.",
+                            "cooldown": "70 seconds",
+                            "success chance": "75%"
                         }
                     }
                 }
@@ -1164,14 +1164,14 @@
         },
         "Witches": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "hexCrafting": {
+                    "name": "Hex Crafting",
+                    "description": "Witches are magical practitioners with knowledge of curses, potions, and arcane rituals.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "curseSpell": {
+                            "description": "Can cast hexes to weaken enemies, brew temporary magical potions, and communicate with familiars.",
+                            "cooldown": "105 seconds",
+                            "success chance": "80%"
                         }
                     }
                 }
@@ -1179,14 +1179,14 @@
         },
         "Zombies": {
             "racialAbilities": {
-                "racialAbilityName": {
-                    "name": "racialAbilityName",
-                    "description": "racialAbilityDescription",
+                "undeadHunger": {
+                    "name": "Undead Hunger",
+                    "description": "Zombies are reanimated undead with an insatiable hunger for flesh and high resistance to damage.",
                     "effect": {
-                        "effectName": {
-                            "description": "effectDescription",
-                            "cooldown": "effectCooldown",
-                            "success chance": "effectSuccessChance"
+                        "infectionBite": {
+                            "description": "Can potentially infect enemies with disease through bites and feel no pain from most attacks.",
+                            "cooldown": "85 seconds",
+                            "success chance": "70%"
                         }
                     }
                 }
