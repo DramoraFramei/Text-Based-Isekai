@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node game.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "text-based",
+    "game",
+    "isekai"
+  ],
+  "author": "Dramora9879",
+  "license": "MIT"
 }
