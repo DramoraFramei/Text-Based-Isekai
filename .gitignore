@@ -15,3 +15,4 @@ savegame.json
 # Node.js dependencies (good practice for the future)
 
 node_modules/
+.history

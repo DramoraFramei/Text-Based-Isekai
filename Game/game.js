@@ -10,7 +10,7 @@ function startGame() {
 	promptPlayerInfo();
 }
 
-const gameData = {
+const gameData = { 
 	gameVariables: [
 		'playerName',
 		'playerClass',
