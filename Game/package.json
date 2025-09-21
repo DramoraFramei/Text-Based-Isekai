@@ -2,9 +2,14 @@
   "name": "text-based-isekai",
   "version": "0.0.01-alpha",
   "description": "",
-  "main": "game.js",
+  "main": "main.js",
+  "type": "module",
+  "bin": "main.js",
   "scripts": {
-    "start": "node game.js"
+    "start": "node game.js",
+    "build": "pkg . --output ./dist/text-based-isekai",
+    "build:win": "pkg . --targets node18-win-x64 --output ./dist/text-based-isekai.exe",
+    "build:all": "pkg . --targets node18-win-x64,node18-macos-x64,node18-linux-x64 --output ./dist/text-based-isekai"
   },
   "keywords": [
     "text-based",
@@ -12,5 +17,14 @@
     "isekai"
   ],
   "author": "Dramora9879",
-  "license": "MIT"
+  "license": "MIT",
+  "pkg": {
+    "assets": [
+      "data/**/*"
+    ],
+    "outputPath": "dist"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
 }
