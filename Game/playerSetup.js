@@ -29,7 +29,8 @@ try {
 
 // Player character object
 const playerCharacter = {
-  name: '',
+  firstName: '',
+  lastName: '',
   race: '',
   class: '',
   gender: '',
@@ -60,15 +61,28 @@ function askQuestion (question) {
 
 // Step 1: Get player name
 async function promptPlayerName () {
-  let name = ''
-  while (!name) {
-    name = await askQuestion('What is your name? ')
-    if (!name) {
-      console.log('Please enter a valid name.')
+  let firstName = ''
+  let lastName = ''
+  
+  // Get first name
+  while (!firstName) {
+    firstName = await askQuestion('What is your first name? ')
+    if (!firstName) {
+      console.log('Please enter a valid first name.')
     }
   }
-  playerCharacter.name = name
-  console.log(`Welcome, ${name}! Let's continue with your character creation.\n`)
+  
+  // Get last name
+  while (!lastName) {
+    lastName = await askQuestion('What is your last name? ')
+    if (!lastName) {
+      console.log('Please enter a valid last name.')
+    }
+  }
+  
+  playerCharacter.firstName = firstName
+  playerCharacter.lastName = lastName
+  console.log(`Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
   promptPlayerRace()
 }
 
@@ -307,7 +321,7 @@ async function showCharacterSummary () {
   console.log('\n' + '='.repeat(50))
   console.log('📋 CHARACTER SUMMARY')
   console.log('='.repeat(50))
-  console.log(`Name: ${playerCharacter.name}`)
+  console.log(`Name: ${playerCharacter.firstName} ${playerCharacter.lastName}`)
   console.log(`Race: ${playerCharacter.race.charAt(0).toUpperCase() + playerCharacter.race.slice(1)}`)
   console.log(`Class: ${playerCharacter.class.charAt(0).toUpperCase() + playerCharacter.class.slice(1)}`)
   console.log(`Gender: ${playerCharacter.gender.charAt(0).toUpperCase() + playerCharacter.gender.slice(1)}`)
@@ -340,7 +354,7 @@ async function showCharacterSummary () {
 // Step 9: Complete character creation and update game
 function completeCharacterCreation () {
   console.log('\n🎉 Character creation complete!')
-  console.log(`Welcome to Aethel, ${playerCharacter.name} the ${playerCharacter.race} ${playerCharacter.class}!`)
+  console.log(`Welcome to Aethel, ${playerCharacter.firstName} ${playerCharacter.lastName} the ${playerCharacter.race} ${playerCharacter.class}!`)
   console.log('\nYour adventure begins now...\n')
 
   // Export character data for use in the main game
@@ -359,8 +373,9 @@ export function getPlayerData () {
 
 // Export function to update player object in main game
 export function updatePlayerObject (gamePlayerObject) {
-  if (playerCharacter.name) {
-    gamePlayerObject.name = playerCharacter.name
+  if (playerCharacter.firstName && playerCharacter.lastName) {
+    gamePlayerObject.firstName = playerCharacter.firstName
+    gamePlayerObject.lastName = playerCharacter.lastName
     gamePlayerObject.race = playerCharacter.race
     gamePlayerObject.class = playerCharacter.class
     gamePlayerObject.gender = playerCharacter.gender
@@ -368,7 +383,7 @@ export function updatePlayerObject (gamePlayerObject) {
     gamePlayerObject.height = playerCharacter.height
     gamePlayerObject.weight = playerCharacter.weight
 
-    console.log(`✅ Player object updated for ${playerCharacter.name}!`)
+    console.log(`✅ Player object updated for ${playerCharacter.firstName} ${playerCharacter.lastName}!`)
     return true
   }
   return false

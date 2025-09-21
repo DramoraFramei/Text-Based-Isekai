@@ -822,7 +822,8 @@ gameData.forbiddenSummoningSpells = [
   ...gameData.divineSummoningSpells
 ]
 const player = {
-  name: '',
+  firstName: '',
+  lastName: '',
   class: '',
   race: '',
   gender: '',
@@ -1440,7 +1441,7 @@ function displayPlayerStats () {
   const baseStats = player.stats
   const effectiveStats = getEffectiveStats()
 
-  console.log(`Name: ${player.name}`)
+  console.log(`Name: ${player.firstName} ${player.lastName}`)
   // Capitalize first letter of race and class if they exist
   const pRace = player.race
     ? player.race.charAt(0).toUpperCase() + player.race.slice(1)
