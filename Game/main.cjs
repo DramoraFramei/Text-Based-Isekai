@@ -2,31 +2,21 @@
 
 // CommonJS entry point for pkg
 
-// For pkg executable, try to start the game directly
-console.log('Starting Text-Based Isekai Game...')
+async function startGame () {
+  try {
+    console.log('🌟 Starting Text-Based Isekai Game... 🌟\n')
 
-// Try to load game module using require instead of import
-try {
-  // Since this is a CommonJS file, try a different approach
-  console.log('Welcome to the Text Adventure!')
-  console.log('Player setup functionality not yet implemented.')
-  console.log('Game loaded successfully!')
+    // Import the player setup module
+    const { promptPlayerInfo } = await import('./playerSetup.js')
 
-  // Keep the process alive for user interaction
-  process.stdin.resume()
-  process.stdin.setEncoding('utf8')
-
-  process.stdin.on('data', function (text) {
-    console.log('You entered: ' + text)
-    if (text.trim() === 'quit' || text.trim() === 'exit') {
-      console.log('Thanks for playing!')
-      process.exit(0)
-    }
-  })
-
-  console.log('Type "quit" or "exit" to close the game.')
-} catch (error) {
-  console.error('Error starting game:', error.message)
-  console.error('Full error:', error)
-  process.exit(1)
+    // Start the character creation process
+    promptPlayerInfo()
+  } catch (error) {
+    console.error('Error starting game:', error.message)
+    console.error('Full error:', error)
+    process.exit(1)
+  }
 }
+
+// Start the game
+startGame()
