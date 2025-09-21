@@ -79,10 +79,10 @@ async function promptPlayerName () {
       console.log('Please enter a valid last name.')
     }
   }
-
+  const fullName = `${firstName} ${lastName}`
   playerCharacter.firstName = firstName
   playerCharacter.lastName = lastName
-  console.log(`Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
+  console.log(`Welcome, ${fullName}! Let's continue with your character creation.\n`)
   promptPlayerRace()
 }
 
