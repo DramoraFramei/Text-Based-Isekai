@@ -365,7 +365,6 @@ function completeCharacterCreation () {
   setTimeout(() => {
     startMainGame()
   }, 1000)
-  startMainGame()
 }
 
 // Basic game variables
