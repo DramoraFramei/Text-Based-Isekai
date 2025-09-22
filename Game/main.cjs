@@ -360,7 +360,7 @@ function completeCharacterCreation () {
   console.log('\nYour adventure begins now...\n')
 
   console.log('🌍 Loading the world of Aethel...')
-  
+
   // Start the main game loop
   setTimeout(() => {
     startMainGame()
@@ -395,7 +395,7 @@ function startMainGame () {
   locations[gameState.location].actions.forEach(action => {
     console.log(`- ${action}`)
   })
-  
+
   if (gameState.isRunning) {
     rl.question('\nWhat would you like to do? ', (answer) => {
       handleAction(answer.toLowerCase().trim())
@@ -414,7 +414,7 @@ function handleAction (action) {
         console.log('There is no tavern here.')
       }
       break
-      
+
     case 'shop':
       if (gameState.location === 'starting_village') {
         console.log('\n🏪 You visit the shop. The merchant has basic supplies.')
@@ -423,7 +423,7 @@ function handleAction (action) {
         console.log('There is no shop here.')
       }
       break
-      
+
     case 'forest':
       if (gameState.location === 'starting_village') {
         gameState.location = 'forest'
@@ -432,7 +432,7 @@ function handleAction (action) {
         console.log('You are already in the forest.')
       }
       break
-      
+
     case 'village':
       if (gameState.location === 'forest') {
         gameState.location = 'starting_village'
@@ -441,7 +441,7 @@ function handleAction (action) {
         console.log('You are already in the village.')
       }
       break
-      
+
     case 'explore':
       if (gameState.location === 'forest') {
         console.log('\n🔍 You explore deeper into the forest and find a small clearing.')
@@ -450,13 +450,13 @@ function handleAction (action) {
         console.log('Nothing interesting to explore here.')
       }
       break
-      
+
     case 'inventory':
       console.log('\n🎒 Your inventory:')
       console.log('- Basic clothing')
       console.log('- A small pouch with 10 gold coins')
       break
-      
+
     case 'stats':
       console.log('\n📊 Character Stats:')
       console.log(`Name: ${playerCharacter.firstName} ${playerCharacter.lastName}`)
@@ -467,7 +467,7 @@ function handleAction (action) {
       console.log(`Height: ${playerCharacter.height}`)
       console.log(`Weight: ${playerCharacter.weight}`)
       break
-      
+
     case 'quit':
     case 'exit':
       console.log('\n👋 Thank you for playing the Text-Based Isekai Game!')
@@ -475,13 +475,13 @@ function handleAction (action) {
       gameState.isRunning = false
       rl.close()
       return
-      
+
     default:
       console.log(`\n❓ Unknown action: "${action}"`)
       console.log('Try one of the available actions listed above.')
       break
   }
-  
+
   // Continue the game loop
   setTimeout(() => {
     if (gameState.isRunning) {
