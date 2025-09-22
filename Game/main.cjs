@@ -403,9 +403,9 @@ const npcs = {
     ],
     dialogueIndex: 0
   },
-  temple_priestess: {
-    name: 'Sister Lyanna',
-    description: '⛪ A serene woman in white robes tends to the altar with gentle care.',
+  temple_priest: {
+    name: 'Father Andrew',
+    description: '⛪ A serene man in white priest robes tends to the altar with gentle care.',
     dialogue: [
       'May the light guide your path, traveler.',
       'This temple has stood for centuries, protecting the village from dark forces.',
@@ -609,7 +609,7 @@ const locations = {
   },
   temple: {
     description: '⛪ You are at the serene temple. You can go back to the village.',
-    npcs: ['temple_priestess'],
+    npcs: ['temple_priest'],
     actions: {
       back: () => {
         gameState.location = 'inside village'
