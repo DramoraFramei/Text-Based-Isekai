@@ -222,26 +222,17 @@ async function promptPlayerGender () {
 async function promptPlayerAge () {
   console.log('🕐 Choose your age category:')
 
-  const availableAges = characterData.ages || ['young', 'adult', 'middle-aged', 'elderly']
+  // Get age categories from characterData.ages object or use fallback array
+  const ageCategories = characterData.ages
+    ? Object.keys(characterData.ages)
+    : ['young', 'adult', 'middle-aged', 'elderly']
 
-  availableAges.forEach((age, index) => {
+  ageCategories.forEach((age, index) => {
+    const ageData = characterData.ages?.[age]
+    const displayText = ageData?.display || age
+    
     console.log(`${index + 1}. ${age.charAt(0).toUpperCase() + age.slice(1)}`)
-
-    // Add age descriptions
-    switch (age.toLowerCase()) {
-      case 'young':
-        console.log('   - 16-25 years old, energetic and eager')
-        break
-      case 'adult':
-        console.log('   - 26-40 years old, experienced and capable')
-        break
-      case 'middle-aged':
-        console.log('   - 41-60 years old, wise and seasoned')
-        break
-      case 'elderly':
-        console.log('   - 60+ years old, venerable and knowledgeable')
-        break
-    }
+    console.log(`   - ${displayText}`)
   })
   console.log('')
 
@@ -250,8 +241,8 @@ async function promptPlayerAge () {
     const input = await askQuestion('Enter the number of your chosen age category: ')
     const choice = parseInt(input) - 1
 
-    if (choice >= 0 && choice < availableAges.length) {
-      ageChoice = availableAges[choice]
+    if (choice >= 0 && choice < ageCategories.length) {
+      ageChoice = ageCategories[choice]
       playerCharacter.age = ageChoice
       console.log(`Age category set to ${ageChoice}!\n`)
       promptPlayerHeight()
@@ -265,10 +256,17 @@ async function promptPlayerAge () {
 async function promptPlayerHeight () {
   console.log('📏 Choose your height:')
 
-  const availableHeights = characterData.heights || ['short', 'average', 'tall']
+  // Get height categories from characterData.heights object or use fallback array
+  const heightCategories = characterData.heights
+    ? Object.keys(characterData.heights)
+    : ['short', 'average', 'tall']
 
-  availableHeights.forEach((height, index) => {
+  heightCategories.forEach((height, index) => {
+    const heightData = characterData.heights?.[height]
+    const displayText = heightData?.display || height
+    
     console.log(`${index + 1}. ${height.charAt(0).toUpperCase() + height.slice(1)}`)
+    console.log(`   - ${displayText}`)
   })
   console.log('')
 
@@ -277,8 +275,8 @@ async function promptPlayerHeight () {
     const input = await askQuestion('Enter the number of your chosen height: ')
     const choice = parseInt(input) - 1
 
-    if (choice >= 0 && choice < availableHeights.length) {
-      heightChoice = availableHeights[choice]
+    if (choice >= 0 && choice < heightCategories.length) {
+      heightChoice = heightCategories[choice]
       playerCharacter.height = heightChoice
       console.log(`Height set to ${heightChoice}!\n`)
       promptPlayerWeight()
