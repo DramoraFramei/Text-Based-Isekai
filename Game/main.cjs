@@ -372,10 +372,133 @@ const gameState = {
   inventory: ['basic_clothing', 'gold_pouch']
 }
 
+// NPCs with dialogue system
+const npcs = {
+  old_man_gideon: {
+    name: 'Gideon',
+    description: '👴 A weathered old man with a long white beard sits on a tree stump, whittling a piece of wood.',
+    dialogue: [
+      "Well, hello there, traveler. It's not often I see a new face in these woods.",
+      "Be careful if you're heading north. There's a dark cave up that way. I'd recommend getting a torch if you plan to explore it.",
+      "The village to the east is usually welcoming, but they've been on edge lately."
+    ],
+    dialogueIndex: 0
+  },
+  elara_the_shopkeeper: {
+    name: 'Elara',
+    description: '👩‍💼 A cheerful woman with a bright smile stands behind the counter.',
+    dialogue: [
+      'Welcome to my shop! What can I get for you today?',
+      "I've got a fresh stock of torches, perfect for exploring dark places. Just say 'buy torch'."
+    ],
+    dialogueIndex: 0
+  },
+  innkeeper_thomas: {
+    name: 'Thomas',
+    description: '🧔 A stout, friendly man with rosy cheeks wipes down mugs behind the bar.',
+    dialogue: [
+      'Welcome to The Prancing Pony! Best ale and rooms in the village!',
+      "Need a place to rest? A room's just 10 gold for the night.",
+      "Heard there's been strange activity in the old mine lately..."
+    ],
+    dialogueIndex: 0
+  },
+  temple_priestess: {
+    name: 'Sister Lyanna',
+    description: '⛪ A serene woman in white robes tends to the altar with gentle care.',
+    dialogue: [
+      'May the light guide your path, traveler.',
+      'This temple has stood for centuries, protecting the village from dark forces.',
+      'If you\'re wounded or weary, I can offer healing... for a small donation.'
+    ],
+    dialogueIndex: 0
+  },
+  bartender_rick: {
+    name: 'Rick',
+    description: '🍺 A burly man with muscular arms serves drinks with practiced efficiency.',
+    dialogue: [
+      'What\'ll it be, stranger? We\'ve got ale, wine, and rumors.',
+      'Heard you\'re new in town. Word of advice: stay out of the dungeon south of the forest.',
+      'That old man Gideon knows more than he lets on. Been living in those woods for decades.'
+    ],
+    dialogueIndex: 0
+  }
+}
+
+// Save and Load System
+function saveGame () {
+  try {
+    // Create save data object
+    const saveData = {
+      playerCharacter: { ...playerCharacter },
+      gameState: { ...gameState },
+      npcDialogueIndexes: {}
+    }
+
+    // Save NPC dialogue indexes
+    Object.keys(npcs).forEach(npcId => {
+      saveData.npcDialogueIndexes[npcId] = npcs[npcId].dialogueIndex
+    })
+
+    // Create saves directory if it doesn't exist
+    const savesDir = path.join(__dirname, 'saves')
+    if (!fs.existsSync(savesDir)) {
+      fs.mkdirSync(savesDir)
+    }
+
+    // Save to file
+    const saveFile = path.join(savesDir, 'savegame.json')
+    fs.writeFileSync(saveFile, JSON.stringify(saveData, null, 2))
+
+    console.log('\n💾 Game saved successfully!')
+    return true
+  } catch (error) {
+    console.log('\n❌ Error saving game:', error.message)
+    return false
+  }
+}
+
+function loadGame () {
+  try {
+    const saveFile = path.join(__dirname, 'saves', 'savegame.json')
+
+    if (!fs.existsSync(saveFile)) {
+      console.log('\n❌ No save file found!')
+      return false
+    }
+
+    // Read save data
+    const saveData = JSON.parse(fs.readFileSync(saveFile, 'utf8'))
+
+    // Restore player character
+    Object.assign(playerCharacter, saveData.playerCharacter)
+
+    // Restore game state
+    Object.assign(gameState, saveData.gameState)
+
+    // Restore NPC dialogue indexes
+    if (saveData.npcDialogueIndexes) {
+      Object.keys(saveData.npcDialogueIndexes).forEach(npcId => {
+        if (npcs[npcId]) {
+          npcs[npcId].dialogueIndex = saveData.npcDialogueIndexes[npcId]
+        }
+      })
+    }
+
+    console.log('\n💾 Game loaded successfully!')
+    console.log(`Welcome back, ${playerCharacter.firstName} ${playerCharacter.lastName}!`)
+    return true
+  } catch (error) {
+    console.log('\n❌ Error loading game:', error.message)
+    return false
+  }
+}
+
 // Simple locations (based on game.js structure but with emojis)
 const locations = {
   forest: {
     description: "🌲 You are in a dense forest. You can go 'north', 'east', 'west', or 'south'.",
+    npcs: ['old_man_gideon'],
     actions: {
       north: () => {
         gameState.location = 'cave'
@@ -460,6 +583,7 @@ const locations = {
   },
   shop: {
     description: '🏪 You are at the general shop. The merchant has basic supplies. You can go back to the village.',
+    npcs: ['elara_the_shopkeeper'],
     actions: {
       back: () => {
         gameState.location = 'inside village'
@@ -470,6 +594,7 @@ const locations = {
   },
   inn: {
     description: '🏨 You are at the cozy inn. You can go back to the village.',
+    npcs: ['innkeeper_thomas'],
     actions: {
       back: () => {
         gameState.location = 'inside village'
@@ -484,6 +609,7 @@ const locations = {
   },
   temple: {
     description: '⛪ You are at the serene temple. You can go back to the village.',
+    npcs: ['temple_priestess'],
     actions: {
       back: () => {
         gameState.location = 'inside village'
@@ -504,6 +630,7 @@ const locations = {
   },
   bar: {
     description: '🍺 You are at the noisy bar. You can go back to the village.',
+    npcs: ['bartender_rick'],
     actions: {
       back: () => {
         gameState.location = 'inside village'
@@ -527,7 +654,7 @@ const locations = {
       if (!gameState.inventory.includes('torch')) {
         return "🕳️ You are in a dark cave. It's too dark to see much. You need a light source to explore further."
       } else {
-        return "🕳️ You are in a dark cave. Your torch illuminates the rocky walls. You can proceed deeper or go back."
+        return '🕳️ You are in a dark cave. Your torch illuminates the rocky walls. You can proceed deeper or go back.'
       }
     },
     actions: {
@@ -599,7 +726,7 @@ function startMainGame () {
   }
 
   const currentLocation = locations[gameState.location]
-  
+
   // Handle description (can be string or function)
   const description = typeof currentLocation.description === 'function'
     ? currentLocation.description()
@@ -607,7 +734,19 @@ function startMainGame () {
 
   console.log(`\n=== ${gameState.location.charAt(0).toUpperCase() + gameState.location.slice(1).replace('_', ' ')} ===`)
   console.log(description)
-  
+
+  // Display NPCs in the location
+  if (currentLocation.npcs && currentLocation.npcs.length > 0) {
+    console.log('\nAlso here:')
+    currentLocation.npcs.forEach((npcId) => {
+      const npc = npcs[npcId]
+      if (npc) {
+        console.log(`- ${npc.description}`)
+      }
+    })
+    console.log("You can 'talk to <name>' to interact with them.")
+  }
+
   // Show available location actions
   const locationActions = Object.keys(currentLocation.actions || {})
   if (locationActions.length > 0) {
@@ -616,11 +755,13 @@ function startMainGame () {
       console.log(`- ${action}`)
     })
   }
-  
+
   // Show standard actions
   console.log('\nOther commands:')
   console.log('- inventory')
   console.log('- stats')
+  console.log('- save')
+  console.log('- load')
   console.log('- help')
   console.log('- quit')
 
@@ -680,6 +821,19 @@ function handleAction (action) {
       console.log(`Location: ${gameState.location.replace('_', ' ')}`)
       break
 
+    case 'save':
+      console.log('\n💾 Saving your game...')
+      saveGame()
+      break
+
+    case 'load':
+      console.log('\n💾 Loading your game...')
+      if (loadGame()) {
+        // Game loaded successfully, restart the main game loop
+        console.log('\n🎮 Resuming your adventure...')
+      }
+      break
+
     case 'quit':
     case 'exit':
       console.log('\n👋 Thank you for playing the Text-Based Isekai Game!')
@@ -693,10 +847,44 @@ function handleAction (action) {
       console.log('- Type any of the available actions listed above')
       console.log('- Use "stats" to view your character information')
       console.log('- Use "inventory" to check your items')
+      console.log('- Use "talk to <name>" to interact with NPCs')
+      console.log('- Use "save" to save your game progress')
+      console.log('- Use "load" to load your saved game')
       console.log('- Use "quit" or "exit" to end the game')
       break
 
     default:
+      // Check for interaction actions like "talk to <npc>"
+      if (action.startsWith('talk to ')) {
+        const npcName = action.substring(8).toLowerCase() // Get the name after "talk to "
+
+        // First try exact name match
+        let npcId = currentLocation.npcs?.find(
+          (id) => npcs[id].name.toLowerCase() === npcName
+        )
+
+        // If no exact match, try partial match in description
+        if (!npcId && currentLocation.npcs) {
+          npcId = currentLocation.npcs.find((id) => {
+            const npc = npcs[id]
+            return npc.description.toLowerCase().includes(npcName) ||
+                   npc.name.toLowerCase().includes(npcName)
+          })
+        }
+
+        if (npcId) {
+          const npc = npcs[npcId]
+          // Display dialogue and cycle to the next line
+          console.log(
+            `\n[${npc.name}]: "${npc.dialogue[npc.dialogueIndex]}"`
+          )
+          npc.dialogueIndex = (npc.dialogueIndex + 1) % npc.dialogue.length
+        } else {
+          console.log(`\n❓ There is no one here by the name of '${npcName}'.`)
+        }
+        break
+      }
+
       // Check if it's a location-specific action
       if (currentLocation.actions && currentLocation.actions[action]) {
         // Execute the location-specific action
@@ -718,6 +906,25 @@ function handleAction (action) {
 async function startGame () {
   try {
     console.log('🌟 Starting Text-Based Isekai Game... 🌟\n')
+
+    // Check if a save file exists
+    const saveFile = path.join(__dirname, 'saves', 'savegame.json')
+    if (fs.existsSync(saveFile)) {
+      console.log('💾 Save file detected!')
+      const choice = await askQuestion('Would you like to (L)oad your saved game or start a (N)ew game? (L/N): ')
+
+      if (choice.toLowerCase() === 'l' || choice.toLowerCase() === 'load') {
+        if (loadGame()) {
+          console.log('\n🎮 Resuming your adventure...')
+          startMainGame()
+          return
+        } else {
+          console.log('\n❌ Failed to load save file. Starting new game...\n')
+        }
+      }
+    }
+
+    // Start new game
     await promptPlayerInfo()
   } catch (error) {
     console.error('Error starting game:', error.message)
