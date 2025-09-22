@@ -3,9 +3,12 @@
 // CommonJS entry point for pkg
 
 // Simple embedded player setup for pkg compatibility
-const { createInterface } = require('readline')
 const fs = require('fs')
 const path = require('path')
+const { input, select, confirm } = require('@inquirer/prompts')
+
+// For game actions, we'll still need readline for the main game loop
+const { createInterface } = require('readline')
 
 // Create readline interface for user input
 const rl = createInterface({
@@ -43,15 +46,6 @@ try {
   }
 }
 
-// Helper function to ask questions
-function askQuestion (question) {
-  return new Promise((resolve) => {
-    rl.question(question, (answer) => {
-      resolve(answer.trim())
-    })
-  })
-}
-
 // Main function to start player setup
 async function promptPlayerInfo () {
   console.log('\n' + '='.repeat(50))
@@ -65,66 +59,70 @@ async function promptPlayerInfo () {
 
 // Step 1: Get player name
 async function promptPlayerName () {
-  let firstName = ''
-  let lastName = ''
+  console.log('🧙‍♂️ Let\'s start with your character\'s name...\n')
 
-  // Get first name
-  while (!firstName) {
-    firstName = await askQuestion('What is your first name? ')
-    if (!firstName) {
-      console.log('Please enter a valid first name.')
+  // Get first name using inquirer input
+  const firstName = await input({
+    message: 'What is your first name?',
+    validate: (input) => {
+      if (!input || input.trim().length === 0) {
+        return 'Please enter a valid first name.'
+      }
+      return true
     }
-  }
+  })
 
-  // Get last name
-  while (!lastName) {
-    lastName = await askQuestion('What is your last name? ')
-    if (!lastName) {
-      console.log('Please enter a valid last name.')
+  // Get last name using inquirer input
+  const lastName = await input({
+    message: 'What is your last name?',
+    validate: (input) => {
+      if (!input || input.trim().length === 0) {
+        return 'Please enter a valid last name.'
+      }
+      return true
     }
-  }
+  })
 
-  playerCharacter.firstName = firstName
-  playerCharacter.lastName = lastName
-  console.log(`Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
+  playerCharacter.firstName = firstName.trim()
+  playerCharacter.lastName = lastName.trim()
+  console.log(`\n✨ Welcome, ${firstName} ${lastName}! Let's continue with your character creation.\n`)
   await promptPlayerRace()
 }
 
 // Step 2: Get player race
 async function promptPlayerRace () {
-  console.log('�️ Choose your race:')
+  console.log('🧝‍♂️ Choose your race:')
   console.log('Each race has unique abilities and characteristics.\n')
+
   const availableRaces = Object.keys(characterData.races)
 
-  // Display race options with descriptions
-  availableRaces.forEach((race, index) => {
-    console.log(`${index + 1}. ${race.charAt(0).toUpperCase() + race.slice(1)}`)
-
-    // Get racial abilities for description
+  // Create choices array for inquirer
+  const raceChoices = availableRaces.map(race => {
     const raceData = characterData.races[race]
+    let description = race.charAt(0).toUpperCase() + race.slice(1)
+
+    // Add racial ability description if available
     if (raceData.racialAbilities) {
       const abilities = Object.values(raceData.racialAbilities)
       if (abilities.length > 0) {
-        console.log(`   - ${abilities[0].description}`)
+        description += ` - ${abilities[0].description}`
       }
     }
-    console.log('')
+
+    return {
+      name: description,
+      value: race
+    }
   })
 
-  let raceChoice = ''
-  while (!raceChoice) {
-    const input = await askQuestion('Enter the number of your chosen race: ')
-    const choice = parseInt(input) - 1
+  const raceChoice = await select({
+    message: 'Select your race:',
+    choices: raceChoices
+  })
 
-    if (choice >= 0 && choice < availableRaces.length) {
-      raceChoice = availableRaces[choice]
-      playerCharacter.race = raceChoice
-      console.log(`You have chosen to be a ${raceChoice.charAt(0).toUpperCase() + raceChoice.slice(1)}!\n`)
-      await promptPlayerClass()
-    } else {
-      console.log('Invalid choice. Please enter a valid number.')
-    }
-  }
+  playerCharacter.race = raceChoice
+  console.log(`\n✨ You have chosen to be a ${raceChoice.charAt(0).toUpperCase() + raceChoice.slice(1)}!\n`)
+  await promptPlayerClass()
 }
 
 // Step 3: Get player class
@@ -135,65 +133,61 @@ async function promptPlayerClass () {
   // Get unique classes (remove duplicates)
   const availableClasses = [...new Set(characterData.classes)]
 
-  // Display class options
-  availableClasses.forEach((className, index) => {
-    console.log(`${index + 1}. ${className.charAt(0).toUpperCase() + className.slice(1)}`)
-
-    // Add class descriptions
+  // Create choices array with descriptions
+  const classChoices = availableClasses.map(className => {
+    let description
     switch (className.toLowerCase()) {
       case 'warrior':
-        console.log('   - Masters of combat and weapons, strong in battle')
+        description = 'Warriors - Masters of combat and weapons, strong in battle'
         break
       case 'mage':
-        console.log('   - Wielders of arcane magic and powerful spells')
+        description = 'Mages - Wielders of arcane magic and powerful spells'
         break
       case 'rogue':
-        console.log('   - Stealthy and agile, masters of stealth and precision')
+        description = 'Rogues - Stealthy and agile, masters of stealth and precision'
         break
       case 'cleric':
-        console.log('   - Divine healers and supporters, blessed by the gods')
+        description = 'Clerics - Divine healers and supporters, blessed by the gods'
         break
       case 'paladin':
-        console.log('   - Holy warriors combining faith and martial prowess')
+        description = 'Paladins - Holy warriors combining faith and martial prowess'
         break
       case 'ranger':
-        console.log('   - Nature guardians skilled in archery and survival')
+        description = 'Rangers - Nature guardians skilled in archery and survival'
         break
       case 'sorcerer':
-        console.log('   - Born with innate magical abilities and raw power')
+        description = 'Sorcerers - Born with innate magical abilities and raw power'
         break
       case 'druid':
-        console.log('   - Nature\'s champions with shapeshifting abilities')
+        description = 'Druids - Nature\'s champions with shapeshifting abilities'
         break
       case 'barbarian':
-        console.log('   - Fierce warriors fueled by primal rage')
+        description = 'Barbarians - Fierce warriors fueled by primal rage'
         break
       case 'monk':
-        console.log('   - Disciplined fighters using inner spiritual power')
+        description = 'Monks - Disciplined fighters using inner spiritual power'
         break
       case 'bard':
-        console.log('   - Charismatic performers weaving magic through music')
+        description = 'Bards - Charismatic performers weaving magic through music'
         break
       default:
-        console.log('   - A unique class with special abilities')
+        description = `${className.charAt(0).toUpperCase() + className.slice(1)} - A unique class with special abilities`
     }
-    console.log('')
+
+    return {
+      name: description,
+      value: className
+    }
   })
 
-  let classChoice = ''
-  while (!classChoice) {
-    const input = await askQuestion('Enter the number of your chosen class: ')
-    const choice = parseInt(input) - 1
+  const classChoice = await select({
+    message: 'Select your class:',
+    choices: classChoices
+  })
 
-    if (choice >= 0 && choice < availableClasses.length) {
-      classChoice = availableClasses[choice]
-      playerCharacter.class = classChoice
-      console.log(`You have chosen to be a ${classChoice.charAt(0).toUpperCase() + classChoice.slice(1)}!\n`)
-      await promptPlayerGender()
-    } else {
-      console.log('Invalid choice. Please enter a valid number.')
-    }
-  }
+  playerCharacter.class = classChoice
+  console.log(`\n✨ You have chosen to be a ${classChoice.charAt(0).toUpperCase() + classChoice.slice(1)}!\n`)
+  await promptPlayerGender()
 }
 
 // Step 4: Get player gender
@@ -202,25 +196,19 @@ async function promptPlayerGender () {
 
   const availableGenders = characterData.genders || ['male', 'female', 'non-binary']
 
-  availableGenders.forEach((gender, index) => {
-    console.log(`${index + 1}. ${gender.charAt(0).toUpperCase() + gender.slice(1)}`)
+  const genderChoices = availableGenders.map(gender => ({
+    name: gender.charAt(0).toUpperCase() + gender.slice(1),
+    value: gender
+  }))
+
+  const genderChoice = await select({
+    message: 'Select your gender:',
+    choices: genderChoices
   })
-  console.log('')
 
-  let genderChoice = ''
-  while (!genderChoice) {
-    const input = await askQuestion('Enter the number of your chosen gender: ')
-    const choice = parseInt(input) - 1
-
-    if (choice >= 0 && choice < availableGenders.length) {
-      genderChoice = availableGenders[choice]
-      playerCharacter.gender = genderChoice
-      console.log(`Gender set to ${genderChoice}!\n`)
-      await promptPlayerAge()
-    } else {
-      console.log('Invalid choice. Please enter a valid number.')
-    }
-  }
+  playerCharacter.gender = genderChoice
+  console.log(`\n✨ Gender set to ${genderChoice}!\n`)
+  await promptPlayerAge()
 }
 
 // Step 5: Get player age
@@ -232,29 +220,24 @@ async function promptPlayerAge () {
     ? Object.keys(characterData.ages)
     : ['young', 'adult', 'middle-aged', 'elderly']
 
-  ageCategories.forEach((age, index) => {
+  const ageChoices = ageCategories.map(age => {
     const ageData = characterData.ages?.[age]
     const displayText = ageData?.display || age
 
-    console.log(`${index + 1}. ${age.charAt(0).toUpperCase() + age.slice(1)}`)
-    console.log(`   - ${displayText}`)
-  })
-  console.log('')
-
-  let ageChoice = ''
-  while (!ageChoice) {
-    const input = await askQuestion('Enter the number of your chosen age category: ')
-    const choice = parseInt(input) - 1
-
-    if (choice >= 0 && choice < ageCategories.length) {
-      ageChoice = ageCategories[choice]
-      playerCharacter.age = ageChoice
-      console.log(`Age category set to ${ageChoice}!\n`)
-      await promptPlayerHeight()
-    } else {
-      console.log('Invalid choice. Please enter a valid number.')
+    return {
+      name: `${age.charAt(0).toUpperCase() + age.slice(1)} - ${displayText}`,
+      value: age
     }
-  }
+  })
+
+  const ageChoice = await select({
+    message: 'Select your age category:',
+    choices: ageChoices
+  })
+
+  playerCharacter.age = ageChoice
+  console.log(`\n✨ Age category set to ${ageChoice}!\n`)
+  await promptPlayerHeight()
 }
 
 // Step 6: Get player height
@@ -266,29 +249,24 @@ async function promptPlayerHeight () {
     ? Object.keys(characterData.heights)
     : ['short', 'average', 'tall']
 
-  heightCategories.forEach((height, index) => {
+  const heightChoices = heightCategories.map(height => {
     const heightData = characterData.heights?.[height]
     const displayText = heightData?.display || height
 
-    console.log(`${index + 1}. ${height.charAt(0).toUpperCase() + height.slice(1)}`)
-    console.log(`   - ${displayText}`)
-  })
-  console.log('')
-
-  let heightChoice = ''
-  while (!heightChoice) {
-    const input = await askQuestion('Enter the number of your chosen height: ')
-    const choice = parseInt(input) - 1
-
-    if (choice >= 0 && choice < heightCategories.length) {
-      heightChoice = heightCategories[choice]
-      playerCharacter.height = heightChoice
-      console.log(`Height set to ${heightChoice}!\n`)
-      await promptPlayerWeight()
-    } else {
-      console.log('Invalid choice. Please enter a valid number.')
+    return {
+      name: `${height.charAt(0).toUpperCase() + height.slice(1)} - ${displayText}`,
+      value: height
     }
-  }
+  })
+
+  const heightChoice = await select({
+    message: 'Select your height:',
+    choices: heightChoices
+  })
+
+  playerCharacter.height = heightChoice
+  console.log(`\n✨ Height set to ${heightChoice}!\n`)
+  await promptPlayerWeight()
 }
 
 // Step 7: Get player weight
@@ -297,25 +275,19 @@ async function promptPlayerWeight () {
 
   const availableWeights = characterData.weights || ['light', 'average', 'heavy']
 
-  availableWeights.forEach((weight, index) => {
-    console.log(`${index + 1}. ${weight.charAt(0).toUpperCase() + weight.slice(1)}`)
+  const weightChoices = availableWeights.map(weight => ({
+    name: weight.charAt(0).toUpperCase() + weight.slice(1),
+    value: weight
+  }))
+
+  const weightChoice = await select({
+    message: 'Select your build:',
+    choices: weightChoices
   })
-  console.log('')
 
-  let weightChoice = ''
-  while (!weightChoice) {
-    const input = await askQuestion('Enter the number of your chosen build: ')
-    const choice = parseInt(input) - 1
-
-    if (choice >= 0 && choice < availableWeights.length) {
-      weightChoice = availableWeights[choice]
-      playerCharacter.weight = weightChoice
-      console.log(`Build set to ${weightChoice}!\n`)
-      await showCharacterSummary()
-    } else {
-      console.log('Invalid choice. Please enter a valid number.')
-    }
-  }
+  playerCharacter.weight = weightChoice
+  console.log(`\n✨ Build set to ${weightChoice}!\n`)
+  await showCharacterSummary()
 }
 
 // Step 8: Show character summary and confirm
@@ -343,12 +315,15 @@ async function showCharacterSummary () {
 
   console.log('\n✨ Your character is ready to begin their adventure in Aethel!')
 
-  const confirm = await askQuestion('\nDo you want to confirm this character? (yes/no): ')
+  const confirmCharacter = await confirm({
+    message: 'Do you want to confirm this character?',
+    default: true
+  })
 
-  if (confirm.toLowerCase() === 'yes' || confirm.toLowerCase() === 'y') {
+  if (confirmCharacter) {
     completeCharacterCreation()
   } else {
-    console.log('\nLet\'s start over with character creation...\n')
+    console.log('\n🔄 Let\'s start over with character creation...\n')
     await promptPlayerName()
   }
 }
@@ -921,9 +896,22 @@ async function startGame () {
     const saveFile = path.join(__dirname, 'saves', 'savegame.json')
     if (fs.existsSync(saveFile)) {
       console.log('💾 Save file detected!')
-      const choice = await askQuestion('Would you like to (L)oad your saved game or start a (N)ew game? (L/N): ')
 
-      if (choice.toLowerCase() === 'l' || choice.toLowerCase() === 'load') {
+      const choice = await select({
+        message: 'What would you like to do?',
+        choices: [
+          {
+            name: '📁 Load your saved game',
+            value: 'load'
+          },
+          {
+            name: '🆕 Start a new game',
+            value: 'new'
+          }
+        ]
+      })
+
+      if (choice === 'load') {
         if (loadGame()) {
           console.log('\n🎮 Resuming your adventure...')
           startMainGame()
