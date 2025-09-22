@@ -230,7 +230,7 @@ async function promptPlayerAge () {
   ageCategories.forEach((age, index) => {
     const ageData = characterData.ages?.[age]
     const displayText = ageData?.display || age
-    
+
     console.log(`${index + 1}. ${age.charAt(0).toUpperCase() + age.slice(1)}`)
     console.log(`   - ${displayText}`)
   })
@@ -264,7 +264,7 @@ async function promptPlayerHeight () {
   heightCategories.forEach((height, index) => {
     const heightData = characterData.heights?.[height]
     const displayText = heightData?.display || height
-    
+
     console.log(`${index + 1}. ${height.charAt(0).toUpperCase() + height.slice(1)}`)
     console.log(`   - ${displayText}`)
   })
