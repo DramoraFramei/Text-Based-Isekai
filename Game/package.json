@@ -2,9 +2,9 @@
   "name": "text-based-isekai",
   "version": "0.0.01-alpha",
   "description": "An immersive text-based Isekai adventure game with interactive prompts and save system",
-  "main": "game.js",
+  "main": "main.cjs",
   "type": "module",
-  "bin": "game.js",
+  "bin": "main.cjs",
   "scripts": {
     "start": "node game.js",
     "build": "pkg . --output ./dist/text-based-isekai",
