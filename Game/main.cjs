@@ -365,21 +365,225 @@ function completeCharacterCreation () {
   startMainGame()
 }// Basic game variables
 const gameState = {
-  location: 'starting_village',
-  isRunning: true
+  location: 'forest',
+  isRunning: true,
+  inventory: ['basic_clothing', 'gold_pouch']
 }
 
-// Simple locations
+// Simple locations (based on game.js structure but with emojis)
 const locations = {
-  starting_village: {
-    name: 'Starting Village',
-    description: 'A peaceful village where your adventure begins. You see a tavern, a shop, and paths leading to the forest.',
-    actions: ['tavern', 'shop', 'forest', 'inventory', 'stats', 'help', 'quit']
-  },
   forest: {
-    name: 'Dark Forest',
-    description: 'A mysterious forest with tall trees and strange sounds. You can return to the village.',
-    actions: ['village', 'explore', 'inventory', 'stats', 'help', 'quit']
+    description: "🌲 You are in a dense forest. You can go 'north', 'east', 'west', or 'south'.",
+    actions: {
+      north: () => {
+        gameState.location = 'cave'
+        console.log('\n🕳️ You venture north and discover a dark cave entrance...')
+      },
+      south: () => {
+        gameState.location = 'dungeon'
+        console.log('\n� You wander deeper into the forest and find a dungeon, its entrance half-buried in tree roots.')
+      },
+      east: () => {
+        gameState.location = 'village entrance'
+        console.log('\n🏘️ You have discovered a village.')
+      },
+      west: () => {
+        gameState.location = 'roads'
+        console.log('\n🛤️ You go west and find a dusty road.')
+      }
+    },
+    availableActions: ['north', 'south', 'east', 'west', 'inventory', 'stats', 'help', 'quit']
+  },
+  'village entrance': {
+    description: "🏘️ You have discovered a village. You can 'explore' or go 'back' to the forest.",
+    actions: {
+      explore: () => {
+        gameState.location = 'inside village'
+        console.log('\n🚶 You decide to explore the village.')
+      },
+      back: () => {
+        gameState.location = 'forest'
+        console.log('\n🌲 You return to the forest.')
+      }
+    },
+    availableActions: ['explore', 'back', 'inventory', 'stats', 'help', 'quit']
+  },
+  'inside village': {
+    description: "🏘️ You are inside the village. Where do you go? There's the 'market', 'shop', 'inn', 'temple', 'stables', 'bar', or 'adventurers guild'. You can also go 'back' to the village entrance.",
+    actions: {
+      market: () => {
+        gameState.location = 'market'
+        console.log('\n🏪 You head to the bustling market.')
+      },
+      shop: () => {
+        gameState.location = 'shop'
+        console.log('\n🏪 You visit the general shop.')
+      },
+      inn: () => {
+        gameState.location = 'inn'
+        console.log('\n🏨 You enter the cozy inn.')
+      },
+      temple: () => {
+        gameState.location = 'temple'
+        console.log('\n⛪ You visit the serene temple.')
+      },
+      stables: () => {
+        gameState.location = 'stables'
+        console.log('\n🐎 You go to the stables.')
+      },
+      bar: () => {
+        gameState.location = 'bar'
+        console.log('\n🍺 You enter the noisy bar.')
+      },
+      'adventurers guild': () => {
+        gameState.location = 'adventurers guild'
+        console.log('\n⚔️ You visit the adventurers guild.')
+      },
+      back: () => {
+        gameState.location = 'village entrance'
+        console.log('\n🚶 You walk back to the village entrance.')
+      }
+    },
+    availableActions: ['market', 'shop', 'inn', 'temple', 'stables', 'bar', 'adventurers guild', 'back', 'inventory', 'stats', 'help', 'quit']
+  },
+  market: {
+    description: '� You are at the bustling market. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n🏘️ You return to the village center.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
+  },
+  shop: {
+    description: '🏪 You are at the general shop. The merchant has basic supplies. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n🏘️ You return to the village center.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
+  },
+  inn: {
+    description: '🏨 You are at the cozy inn. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n🏘️ You return to the village center.')
+      },
+      sleep: () => {
+        console.log('\n� You sleep soundly until morning.')
+        console.log('💤 You feel refreshed!')
+      }
+    },
+    availableActions: ['back', 'sleep', 'inventory', 'stats', 'help', 'quit']
+  },
+  temple: {
+    description: '⛪ You are at the serene temple. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n🏘️ You return to the village center.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
+  },
+  stables: {
+    description: '🐎 You are at the stables. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n🏘️ You return to the village center.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
+  },
+  bar: {
+    description: '🍺 You are at the noisy bar. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n�️ You return to the village center.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
+  },
+  'adventurers guild': {
+    description: '⚔️ You are at the adventurers guild. You can go back to the village.',
+    actions: {
+      back: () => {
+        gameState.location = 'inside village'
+        console.log('\n🏘️ You return to the village center.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
+  },
+  cave: {
+    description: () => {
+      if (!gameState.inventory.includes('torch')) {
+        return "🕳️ You are in a dark cave. It's too dark to see much. You need a light source to explore further."
+      } else {
+        return "🕳️ You are in a dark cave. Your torch illuminates the rocky walls. You can proceed deeper or go back."
+      }
+    },
+    actions: {
+      back: () => {
+        gameState.location = 'forest'
+        console.log('\n🌲 You return to the forest.')
+      },
+      proceed: () => {
+        if (gameState.inventory.includes('torch')) {
+          gameState.location = 'old abandoned mine'
+          console.log('\n⛏️ You explore further and discover an old abandoned mine!')
+        } else {
+          console.log('\n❌ It\'s too dark to proceed without a light source.')
+        }
+      }
+    },
+    availableActions: ['back', 'proceed', 'inventory', 'stats', 'help', 'quit']
+  },
+  'old abandoned mine': {
+    description: '⛏️ You are in an old abandoned mine with rusty equipment scattered about. Mysterious echoes come from deeper within.',
+    actions: {
+      back: () => {
+        gameState.location = 'cave'
+        console.log('\n🕳️ You return to the cave entrance.')
+      },
+      explore: () => {
+        console.log('\n💎 You search the mine and find some old mining equipment!')
+        console.log('You found: Old Pickaxe (added to inventory)')
+        if (!gameState.inventory.includes('pickaxe')) {
+          gameState.inventory.push('pickaxe')
+        }
+      }
+    },
+    availableActions: ['back', 'explore', 'inventory', 'stats', 'help', 'quit']
+  },
+  dungeon: {
+    description: '🏰 You are at the entrance of a dark dungeon. Dark energy emanates from within.',
+    actions: {
+      enter: () => {
+        console.log('\n⚔️ You step into the dungeon and encounter a goblin!')
+        console.log('Combat system not yet implemented - you retreat safely.')
+      },
+      back: () => {
+        gameState.location = 'forest'
+        console.log('\n🌲 You return to the forest, deciding the dungeon can wait.')
+      }
+    },
+    availableActions: ['enter', 'back', 'inventory', 'stats', 'help', 'quit']
+  },
+  roads: {
+    description: '🛤️ You are on a dusty road. You can go back to the forest.',
+    actions: {
+      back: () => {
+        gameState.location = 'forest'
+        console.log('\n🌲 You return to the forest.')
+      }
+    },
+    availableActions: ['back', 'inventory', 'stats', 'help', 'quit']
   }
 }
 
@@ -392,10 +596,17 @@ function startMainGame () {
     return
   }
 
-  console.log(`\n=== ${locations[gameState.location].name} ===`)
-  console.log(locations[gameState.location].description)
+  const currentLocation = locations[gameState.location]
+  
+  // Handle description (can be string or function)
+  const description = typeof currentLocation.description === 'function' 
+    ? currentLocation.description() 
+    : currentLocation.description
+
+  console.log(`\n=== ${gameState.location.charAt(0).toUpperCase() + gameState.location.slice(1).replace('_', ' ')} ===`)
+  console.log(description)
   console.log('\nAvailable actions:')
-  locations[gameState.location].actions.forEach(action => {
+  currentLocation.availableActions.forEach(action => {
     console.log(`- ${action}`)
   })
 
@@ -429,56 +640,20 @@ function handleAction (action) {
     return
   }
 
+  const currentLocation = locations[gameState.location]
+
+  // Handle global actions first (inventory, stats, help, quit)
   switch (action) {
-    case 'tavern':
-      if (gameState.location === 'starting_village') {
-        console.log('\n� You enter the tavern. The bartender nods at you.')
-        console.log('Bartender: "Welcome, adventurer! Ready for your journey?"')
-      } else {
-        console.log('There is no tavern here.')
-      }
-      break
-
-    case 'shop':
-      if (gameState.location === 'starting_village') {
-        console.log('\n🏪 You visit the shop. The merchant has basic supplies.')
-        console.log('Merchant: "Hello! I have potions and basic equipment."')
-      } else {
-        console.log('There is no shop here.')
-      }
-      break
-
-    case 'forest':
-      if (gameState.location === 'starting_village') {
-        gameState.location = 'forest'
-        console.log('\n🌲 You venture into the dark forest...')
-      } else {
-        console.log('You are already in the forest.')
-      }
-      break
-
-    case 'village':
-      if (gameState.location === 'forest') {
-        gameState.location = 'starting_village'
-        console.log('\n🏘️ You return to the safety of the village.')
-      } else {
-        console.log('You are already in the village.')
-      }
-      break
-
-    case 'explore':
-      if (gameState.location === 'forest') {
-        console.log('\n🔍 You explore deeper into the forest and find a small clearing.')
-        console.log('You notice some interesting mushrooms and hear distant sounds.')
-      } else {
-        console.log('Nothing interesting to explore here.')
-      }
-      break
-
     case 'inventory':
-      console.log('\n🎒 Your inventory:')
-      console.log('- Basic clothing')
-      console.log('- A small pouch with 10 gold coins')
+      console.log('\n� Your inventory:')
+      if (gameState.inventory.length === 0) {
+        console.log('- Empty')
+      } else {
+        gameState.inventory.forEach(item => {
+          const displayName = item.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
+          console.log(`- ${displayName}`)
+        })
+      }
       break
 
     case 'stats':
@@ -490,6 +665,7 @@ function handleAction (action) {
       console.log(`Age: ${playerCharacter.age}`)
       console.log(`Height: ${playerCharacter.height}`)
       console.log(`Weight: ${playerCharacter.weight}`)
+      console.log(`Location: ${gameState.location.replace('_', ' ')}`)
       break
 
     case 'quit':
@@ -509,17 +685,23 @@ function handleAction (action) {
       break
 
     default:
-      console.log(`\n❓ Unknown action: "${action}"`)
-      console.log('Try one of the available actions listed above, or type "help" for more information.')
+      // Check if it's a location-specific action
+      if (currentLocation.actions && currentLocation.actions[action]) {
+        // Execute the location-specific action
+        currentLocation.actions[action]()
+      } else {
+        console.log(`\n❓ Unknown action: "${action}"`)
+        console.log('Try one of the available actions listed above, or type "help" for more information.')
+      }
       break
   }
 
-  // Continue the game loop
-  setTimeout(() => {
-    if (gameState.isRunning) {
+  // Continue the game loop if still running
+  if (gameState.isRunning) {
+    setTimeout(() => {
       startMainGame()
-    }
-  }, 500)
+    }, 800)
+  }
 }
 
 // Start the game
