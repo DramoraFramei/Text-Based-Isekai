@@ -378,15 +378,21 @@ const npcs = {
     name: 'Gideon',
     description: '👴 A weathered old man with a long white beard sits on a tree stump, whittling a piece of wood.',
     dialogue: [
-      "Well, hello there, traveler. It's not often I see a new face in these woods.",
-      "Be careful if you're heading north. There's a dark cave up that way. I'd recommend getting a torch if you plan to explore it.",
-      "The village to the east is usually welcoming, but they've been on edge lately."
+      "Well, hello there, traveler. It's not often I see a new face in these woods...",
+      "Be careful if you're heading north. There's a dark cave up that way. I'd recommend getting a torch if you plan to explore it...",
+      "The village to the east is usually welcoming, but they've been on edge lately...",
+      'Of course, I would be on edge as well, what with the strange things that Father Andrew has been talking about lately...',
+      'let me see if I can remember exactly what he said...',
+      'He mentioned something about a person from another world coming here...',
+      '... what?',
+      '... I don\'t suppose that person is you, is it?',
+      'In that case, welcome to Aethel! You should find the village to the east. Father Andrew will want to speak with you...'
     ],
     dialogueIndex: 0
   },
   elara_the_shopkeeper: {
     name: 'Elara',
-    description: '👩‍💼 A cheerful woman with a bright smile stands behind the counter.',
+    description: '👩‍💼 A cheerful woman with a bright smile stands behind the counter. She seems to be a shopkeeper.',
     dialogue: [
       'Welcome to my shop! What can I get for you today?',
       "I've got a fresh stock of torches, perfect for exploring dark places. Just say 'buy torch'."
@@ -407,9 +413,13 @@ const npcs = {
     name: 'Father Andrew',
     description: '⛪ A serene man in white priest robes tends to the altar with gentle care.',
     dialogue: [
-      'May the light guide your path, traveler.',
-      'This temple has stood for centuries, protecting the village from dark forces.',
-      'If you\'re wounded or weary, I can offer healing... for a small donation.'
+      'Welcome `playerCharacter.name`, I have been expecting you...',
+      'The Gods have spoken of your coming. You are the one from another world, correct?',
+      'You must be cautious. Dark forces are stirring in Aethel, and your arrival may tip the balance...',
+      'I can offer guidance, but you must be prepared to face the challenges ahead...',
+      'Seek out the ancient ruins to the north. They hold secrets that may aid you on your journey...',
+      'And remember, you are not alone in this fight. Allies will come from unexpected places...',
+      'Trust in your instincts, and do not hesitate to seek help when you need it.'
     ],
     dialogueIndex: 0
   },
