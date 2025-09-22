@@ -2,21 +2,25 @@
 
 /**
  * CommonJS wrapper for PKG compatibility
- * This file dynamically imports the ES module game.js
+ * This file dynamically imports the ES module game.js with proper URL handling
  */
+
+const { pathToFileURL } = require('url')
+const path = require('path')
 
 async function startGame () {
   try {
-    // Dynamic import of the ES module
-    await import('./game.js')
+    // Use pathToFileURL for proper file URL conversion
+    const gameModulePath = path.resolve(__dirname, 'game.js')
+    const gameModuleURL = pathToFileURL(gameModulePath).href
+
+    // Dynamic import with proper URL
+    await import(gameModuleURL)
 
     // The game.js module should start automatically when imported
-    // If it exports a start function, we could call it here:
-    // if (gameModule.startGame) {
-    //   gameModule.startGame();
-    // }
   } catch (error) {
     console.error('Error starting the game:', error)
+    console.error('Full error:', error)
     process.exit(1)
   }
 }
