@@ -363,7 +363,9 @@ function completeCharacterCreation () {
 
   // Start the main game loop immediately
   startMainGame()
-}// Basic game variables
+}
+
+// Basic game variables
 const gameState = {
   location: 'forest',
   isRunning: true,
@@ -587,7 +589,7 @@ const locations = {
   }
 }
 
-// Main game loop
+// Main game loop (updated to match game.js structure)
 function startMainGame () {
   console.log('\n[DEBUG] startMainGame called')
 
@@ -599,16 +601,28 @@ function startMainGame () {
   const currentLocation = locations[gameState.location]
   
   // Handle description (can be string or function)
-  const description = typeof currentLocation.description === 'function' 
-    ? currentLocation.description() 
+  const description = typeof currentLocation.description === 'function'
+    ? currentLocation.description()
     : currentLocation.description
 
   console.log(`\n=== ${gameState.location.charAt(0).toUpperCase() + gameState.location.slice(1).replace('_', ' ')} ===`)
   console.log(description)
-  console.log('\nAvailable actions:')
-  currentLocation.availableActions.forEach(action => {
-    console.log(`- ${action}`)
-  })
+  
+  // Show available location actions
+  const locationActions = Object.keys(currentLocation.actions || {})
+  if (locationActions.length > 0) {
+    console.log('\nAvailable actions:')
+    locationActions.forEach(action => {
+      console.log(`- ${action}`)
+    })
+  }
+  
+  // Show standard actions
+  console.log('\nOther commands:')
+  console.log('- inventory')
+  console.log('- stats')
+  console.log('- help')
+  console.log('- quit')
 
   // Ensure readline interface is ready
   if (!rl || rl.closed) {
@@ -632,11 +646,9 @@ function startMainGame () {
 function handleAction (action) {
   if (!action || action.trim() === '') {
     console.log('\nPlease enter a valid action.')
-    setTimeout(() => {
-      if (gameState.isRunning) {
-        startMainGame()
-      }
-    }, 500)
+    if (gameState.isRunning) {
+      startMainGame()
+    }
     return
   }
 
@@ -698,9 +710,7 @@ function handleAction (action) {
 
   // Continue the game loop if still running
   if (gameState.isRunning) {
-    setTimeout(() => {
-      startMainGame()
-    }, 800)
+    startMainGame()
   }
 }
 
