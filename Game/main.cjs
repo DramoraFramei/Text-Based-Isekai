@@ -360,14 +360,10 @@ function completeCharacterCreation () {
   console.log('\nYour adventure begins now...\n')
 
   console.log('🌍 Loading the world of Aethel...')
-
-  // Start the main game loop
-  setTimeout(() => {
-    startMainGame()
-  }, 1000)
-}
-
-// Basic game variables
+  
+  // Start the main game loop immediately
+  startMainGame()
+}// Basic game variables
 const gameState = {
   location: 'starting_village',
   isRunning: true
@@ -378,17 +374,24 @@ const locations = {
   starting_village: {
     name: 'Starting Village',
     description: 'A peaceful village where your adventure begins. You see a tavern, a shop, and paths leading to the forest.',
-    actions: ['tavern', 'shop', 'forest', 'inventory', 'stats', 'quit']
+    actions: ['tavern', 'shop', 'forest', 'inventory', 'stats', 'help', 'quit']
   },
   forest: {
     name: 'Dark Forest',
     description: 'A mysterious forest with tall trees and strange sounds. You can return to the village.',
-    actions: ['village', 'explore', 'inventory', 'stats', 'quit']
+    actions: ['village', 'explore', 'inventory', 'stats', 'help', 'quit']
   }
 }
 
 // Main game loop
 function startMainGame () {
+  console.log('\n[DEBUG] startMainGame called')
+  
+  if (!gameState.isRunning) {
+    console.log('[DEBUG] Game is not running, exiting')
+    return
+  }
+  
   console.log(`\n=== ${locations[gameState.location].name} ===`)
   console.log(locations[gameState.location].description)
   console.log('\nAvailable actions:')
@@ -396,15 +399,36 @@ function startMainGame () {
     console.log(`- ${action}`)
   })
 
-  if (gameState.isRunning) {
-    rl.question('\nWhat would you like to do? ', (answer) => {
-      handleAction(answer.toLowerCase().trim())
-    })
+  // Ensure readline interface is ready
+  if (!rl || rl.closed) {
+    console.log('\nError: Input interface is not available.')
+    return
   }
+
+  console.log('[DEBUG] About to ask for input...')
+  rl.question('\nWhat would you like to do? ', (answer) => {
+    console.log(`[DEBUG] Received input: "${answer}"`)
+    if (answer && answer.trim()) {
+      handleAction(answer.toLowerCase().trim())
+    } else {
+      // If empty input, just show the menu again
+      startMainGame()
+    }
+  })
 }
 
 // Handle player actions
 function handleAction (action) {
+  if (!action || action.trim() === '') {
+    console.log('\nPlease enter a valid action.')
+    setTimeout(() => {
+      if (gameState.isRunning) {
+        startMainGame()
+      }
+    }, 500)
+    return
+  }
+
   switch (action) {
     case 'tavern':
       if (gameState.location === 'starting_village') {
@@ -476,9 +500,17 @@ function handleAction (action) {
       rl.close()
       return
 
+    case 'help':
+      console.log('\n📖 Available commands:')
+      console.log('- Type any of the available actions listed above')
+      console.log('- Use "stats" to view your character information')
+      console.log('- Use "inventory" to check your items')
+      console.log('- Use "quit" or "exit" to end the game')
+      break
+
     default:
       console.log(`\n❓ Unknown action: "${action}"`)
-      console.log('Try one of the available actions listed above.')
+      console.log('Try one of the available actions listed above, or type "help" for more information.')
       break
   }
 
