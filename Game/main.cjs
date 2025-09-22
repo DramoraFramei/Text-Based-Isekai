@@ -359,10 +359,135 @@ function completeCharacterCreation () {
   console.log(`Welcome to Aethel, ${playerCharacter.firstName} ${playerCharacter.lastName} the ${playerCharacter.race} ${playerCharacter.class}!`)
   console.log('\nYour adventure begins now...\n')
 
-  rl.close()
+  console.log('🌍 Loading the world of Aethel...')
+  
+  // Start the main game loop
+  setTimeout(() => {
+    startMainGame()
+  }, 1000)
+}
 
-  console.log('🌍 Game will start soon...')
-  console.log('Thank you for playing the Text-Based Isekai Game!')
+// Basic game variables
+const gameState = {
+  location: 'starting_village',
+  isRunning: true
+}
+
+// Simple locations
+const locations = {
+  starting_village: {
+    name: 'Starting Village',
+    description: 'A peaceful village where your adventure begins. You see a tavern, a shop, and paths leading to the forest.',
+    actions: ['tavern', 'shop', 'forest', 'inventory', 'stats', 'quit']
+  },
+  forest: {
+    name: 'Dark Forest',
+    description: 'A mysterious forest with tall trees and strange sounds. You can return to the village.',
+    actions: ['village', 'explore', 'inventory', 'stats', 'quit']
+  }
+}
+
+// Main game loop
+function startMainGame () {
+  console.log(`\n=== ${locations[gameState.location].name} ===`)
+  console.log(locations[gameState.location].description)
+  console.log('\nAvailable actions:')
+  locations[gameState.location].actions.forEach(action => {
+    console.log(`- ${action}`)
+  })
+  
+  if (gameState.isRunning) {
+    rl.question('\nWhat would you like to do? ', (answer) => {
+      handleAction(answer.toLowerCase().trim())
+    })
+  }
+}
+
+// Handle player actions
+function handleAction (action) {
+  switch (action) {
+    case 'tavern':
+      if (gameState.location === 'starting_village') {
+        console.log('\n� You enter the tavern. The bartender nods at you.')
+        console.log('Bartender: "Welcome, adventurer! Ready for your journey?"')
+      } else {
+        console.log('There is no tavern here.')
+      }
+      break
+      
+    case 'shop':
+      if (gameState.location === 'starting_village') {
+        console.log('\n🏪 You visit the shop. The merchant has basic supplies.')
+        console.log('Merchant: "Hello! I have potions and basic equipment."')
+      } else {
+        console.log('There is no shop here.')
+      }
+      break
+      
+    case 'forest':
+      if (gameState.location === 'starting_village') {
+        gameState.location = 'forest'
+        console.log('\n🌲 You venture into the dark forest...')
+      } else {
+        console.log('You are already in the forest.')
+      }
+      break
+      
+    case 'village':
+      if (gameState.location === 'forest') {
+        gameState.location = 'starting_village'
+        console.log('\n🏘️ You return to the safety of the village.')
+      } else {
+        console.log('You are already in the village.')
+      }
+      break
+      
+    case 'explore':
+      if (gameState.location === 'forest') {
+        console.log('\n🔍 You explore deeper into the forest and find a small clearing.')
+        console.log('You notice some interesting mushrooms and hear distant sounds.')
+      } else {
+        console.log('Nothing interesting to explore here.')
+      }
+      break
+      
+    case 'inventory':
+      console.log('\n🎒 Your inventory:')
+      console.log('- Basic clothing')
+      console.log('- A small pouch with 10 gold coins')
+      break
+      
+    case 'stats':
+      console.log('\n📊 Character Stats:')
+      console.log(`Name: ${playerCharacter.firstName} ${playerCharacter.lastName}`)
+      console.log(`Race: ${playerCharacter.race}`)
+      console.log(`Class: ${playerCharacter.class}`)
+      console.log(`Gender: ${playerCharacter.gender}`)
+      console.log(`Age: ${playerCharacter.age}`)
+      console.log(`Height: ${playerCharacter.height}`)
+      console.log(`Weight: ${playerCharacter.weight}`)
+      break
+      
+    case 'quit':
+    case 'exit':
+      console.log('\n👋 Thank you for playing the Text-Based Isekai Game!')
+      console.log('Your adventure will continue another time...')
+      gameState.isRunning = false
+      rl.close()
+      return
+      
+    default:
+      console.log(`\n❓ Unknown action: "${action}"`)
+      console.log('Try one of the available actions listed above.')
+      break
+  }
+  
+  // Continue the game loop
+  setTimeout(() => {
+    if (gameState.isRunning) {
+      startMainGame()
+    }
+  }, 500)
 }
 
 // Start the game
