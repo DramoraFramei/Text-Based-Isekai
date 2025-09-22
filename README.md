@@ -60,7 +60,9 @@ This game is a purely text-based experience. You interact with the world by typi
 
 ```bash
 cd Game
-node main.cjs
+node game.js
+# or use npm
+npm start
 ```
 
 > **Note:** The executable is completely standalone and doesn't require Node.js to be installed.
@@ -88,8 +90,7 @@ Once you complete character creation and enter the world:
 ```text
 Text-Based-Isekai/
 ├── Game/
-│   ├── main.cjs           # Main entry point for executable
-│   ├── game.js            # Core game logic
+│   ├── game.js            # Main entry point and core game logic
 │   ├── playerSetup.js     # Character creation system
 │   ├── combat.js          # Combat mechanics
 │   ├── travel.js          # Movement and exploration
