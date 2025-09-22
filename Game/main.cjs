@@ -360,7 +360,7 @@ function completeCharacterCreation () {
   console.log('\nYour adventure begins now...\n')
 
   console.log('🌍 Loading the world of Aethel...')
-  
+
   // Start the main game loop immediately
   startMainGame()
 }// Basic game variables
@@ -386,12 +386,12 @@ const locations = {
 // Main game loop
 function startMainGame () {
   console.log('\n[DEBUG] startMainGame called')
-  
+
   if (!gameState.isRunning) {
     console.log('[DEBUG] Game is not running, exiting')
     return
   }
-  
+
   console.log(`\n=== ${locations[gameState.location].name} ===`)
   console.log(locations[gameState.location].description)
   console.log('\nAvailable actions:')
