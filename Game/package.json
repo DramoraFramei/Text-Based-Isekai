@@ -1,6 +1,6 @@
 {
   "name": "text-based-isekai",
-  "version": "0.0.01-alpha",
+  "version": "0.0.02-alpha",
   "description": "",
   "main": "main.cjs",
   "type": "module",
