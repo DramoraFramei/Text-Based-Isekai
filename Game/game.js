@@ -2,6 +2,14 @@ import { createInterface } from 'readline'
 import { promptPlayerInfo } from './playerSetup.js'
 import { travel, advanceTime } from './travel.js'
 import { startCombat, promptCombatAction } from './combat.js'
+import fs from 'fs'
+import path from 'path'
+import { input, select, confirm } from '@inquirer/prompts'
+import { fileURLToPath } from 'url'
+
+// ES modules equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Create readline interface for user input
 const rl = createInterface({
@@ -9,9 +17,49 @@ const rl = createInterface({
   output: process.stdout
 })
 
-export function startGame () {
-  console.log('Welcome to the Text Adventure!')
-  promptPlayerInfo()
+export async function startGame () {
+  try {
+    console.log('🌟 Starting Text-Based Isekai Game... 🌟\n')
+
+    // Check if a save file exists
+    const saveFile = path.join(__dirname, 'saves', 'savegame.json')
+    if (fs.existsSync(saveFile)) {
+      console.log('💾 Save file detected!')
+
+      const choice = await select({
+        message: 'What would you like to do?',
+        choices: [
+          {
+            name: '📁 Load your saved game',
+            value: 'load'
+          },
+          {
+            name: '🆕 Start a new game',
+            value: 'new'
+          }
+        ]
+      })
+
+      if (choice === 'load') {
+        if (loadGame()) {
+          console.log('\n🎮 Resuming your adventure...')
+          // Start the main game loop
+          await displayLocation()
+          return
+        } else {
+          console.log('\n❌ Failed to load save file. Starting new game...\n')
+        }
+      }
+    }
+
+    // Start new game
+    console.log('Welcome to the Text Adventure!')
+    promptPlayerInfo()
+  } catch (error) {
+    console.error('Error starting game:', error.message)
+    console.error('Full error:', error)
+    process.exit(1)
+  }
 }
 
 const gameData = {
@@ -885,31 +933,68 @@ const gameState = {
 const npcs = {
   old_man_gideon: {
     name: 'Gideon',
-    description:
-      'A weathered old man with a long white beard sits on a tree stump, whittling a piece of wood.',
+    description: '👴 A weathered old man with a long white beard sits on a tree stump, whittling a piece of wood.',
     dialogue: [
-      "Well, hello there, traveler. It's not often I see a new face in these woods.",
-      "Be careful if you're heading north. There's a dark cave up that way. I'd recommend getting a torch if you plan to explore it.",
-      "The village to the east is usually welcoming, but they've been on edge lately."
+      "Well, hello there, traveler. It's not often I see a new face in these woods...",
+      "Be careful if you're heading north. There's a dark cave up that way. I'd recommend getting a torch if you plan to explore it...",
+      "The village to the east is usually welcoming, but they've been on edge lately...",
+      'Of course, I would be on edge as well, what with the strange things that Father Andrew has been talking about lately...',
+      'let me see if I can remember exactly what he said...',
+      'He mentioned something about a person from another world coming here...',
+      '... what?',
+      '... I don\'t suppose that person is you, is it?',
+      'In that case, welcome to Aethel! You should find the village to the east. Father Andrew will want to speak with you...'
     ],
-    dialogueIndex: 0 // To cycle through what he says
+    dialogueIndex: 0
   },
   elara_the_shopkeeper: {
     name: 'Elara',
-    description:
-      'A cheerful woman with a bright smile stands behind the counter.',
+    description: '👩‍💼 A cheerful woman with a bright smile stands behind the counter. She seems to be a shopkeeper.',
     dialogue: [
       'Welcome to my shop! What can I get for you today?',
       "I've got a fresh stock of torches, perfect for exploring dark places. Just say 'buy torch'."
     ],
     dialogueIndex: 0
   },
+  innkeeper_thomas: {
+    name: 'Thomas',
+    description: '🧔 A stout, friendly man with rosy cheeks wipes down mugs behind the bar.',
+    dialogue: [
+      'Welcome to The Prancing Pony! Best ale and rooms in the village!',
+      "Need a place to rest? A room's just 10 gold for the night.",
+      "Heard there's been strange activity in the old mine lately..."
+    ],
+    dialogueIndex: 0
+  },
+  temple_priest: {
+    name: 'Father Andrew',
+    description: '⛪ A serene man in white priest robes tends to the altar with gentle care.',
+    dialogue: [
+      'Welcome, I have been expecting you...',
+      'The Gods have spoken of your coming. You are the one from another world, correct?',
+      'You must be cautious. Dark forces are stirring in Aethel, and your arrival may tip the balance...',
+      'I can offer guidance, but you must be prepared to face the challenges ahead...',
+      'Seek out the ancient ruins to the north. They hold secrets that may aid you on your journey...',
+      'And remember, you are not alone in this fight. Allies will come from unexpected places...',
+      'Trust in your instincts, and do not hesitate to seek help when you need it.'
+    ],
+    dialogueIndex: 0
+  },
+  bartender_rick: {
+    name: 'Rick',
+    description: '🍺 A burly man with muscular arms serves drinks with practiced efficiency.',
+    dialogue: [
+      'What\'ll it be, stranger? We\'ve got ale, wine, and rumors.',
+      'Heard you\'re new in town. Word of advice: stay out of the dungeon south of the forest.',
+      'That old man Gideon knows more than he lets on. Been living in those woods for decades.'
+    ],
+    dialogueIndex: 0
+  },
   James_the_blacksmith: {
     name: 'James',
-    description:
-      'A gruff and burly man with massive muscules who is very passionate about blacksmithing.',
+    description: '🔨 A gruff and burly man with massive muscles who is very passionate about blacksmithing.',
     dialogue: [
-      `Great, another ${player.race}, and a ${player.class} at that. Are you here to actually buy something or are you just planning on wasting my time?`,
+      'Great, another visitor, and an adventurer at that. Are you here to actually buy something or are you just planning on wasting my time?',
       "Make it quick, time is money and I don't have too much of either to spare."
     ],
     dialogueIndex: 0
@@ -935,22 +1020,22 @@ export const enemies = {
 const locations = {
   forest: {
     description:
-      "You are in a dense forest. You can go 'north', 'east', 'west', or 'south'.",
+      "🌲 You are in a dense forest. You can go 'north', 'east', 'west', or 'south'.",
     npcs: ['old_man_gideon'],
     actions: {
       north: () => travel('cave', 1),
       south: () => {
         console.log(
-          'You wander deeper into the forest, but find a dungeon, its entrance half buried in the surrounding tree roots.'
+          '🏰 You wander deeper into the forest and find a dungeon, its entrance half-buried in tree roots.'
         )
         travel('dungeon', 1)
       },
       east: () => {
-        console.log('You have discovered a village.')
+        console.log('🏘️ You have discovered a village.')
         player.location = 'village entrance'
       },
       west: () => {
-        console.log('You go west, and find a road.')
+        console.log('🛤️ You go west and find a dusty road.')
         travel('roads', 1)
       }
     }
@@ -958,9 +1043,9 @@ const locations = {
   cave: {
     description: () => {
       if (!player.inventory.includes('torch')) {
-        return "You are in a dark cave. It's too dark. You can go 'back' to the forest."
+        return "🕳️ You are in a dark cave. It's too dark to see much. You need a light source to explore further."
       } else {
-        return "You are in a dark cave. You have a torch so you can 'proceed', or go 'back' to the forest."
+        return "🕳️ You are in a dark cave. Your torch illuminates the rocky walls. You can 'proceed' deeper or go 'back'."
       }
     },
     actions: {
@@ -968,12 +1053,12 @@ const locations = {
       proceed: () => {
         if (player.inventory.includes('torch')) {
           console.log(
-            'You explore further into the cave and find an old abandoned mine.'
+            '⛏️ You explore further and discover an old abandoned mine!'
           )
           travel('old abandoned mine', 1)
         } else {
           console.log(
-            "It's too dark to proceed without a light source."
+            "❌ It's too dark to proceed without a light source."
           )
         }
       }
@@ -981,10 +1066,10 @@ const locations = {
   },
   'village entrance': {
     description:
-      "You have discovered a village. You can 'explore' or go 'back' to the forest.",
+      "🏘️ You have discovered a village. You can 'explore' or go 'back' to the forest.",
     actions: {
       explore: () => {
-        console.log('You decide to explore the village.')
+        console.log('🚶 You decide to explore the village.')
         travel('inside village', 0) // No time passes for short walks
       },
       back: () => travel('forest', 1)
@@ -992,7 +1077,7 @@ const locations = {
   },
   'inside village': {
     description:
-      "You are inside the village. Where do you go? There's the 'market', 'shop', 'inn', 'temple', 'stables', 'bar', or 'adventurers guild'. You can also go 'back' to the village entrance.",
+      "🏘️ You are inside the village. Where do you go? There's the 'market', 'shop', 'inn', 'temple', 'stables', 'bar', or 'adventurers guild'. You can also go 'back' to the village entrance.",
     actions: {
       market: () => (player.location = 'market'),
       shop: () => (player.location = 'shop'),
@@ -1006,12 +1091,12 @@ const locations = {
   },
   market: {
     description:
-      'You are at the bustling market. You can go back to the village.',
+      '🏪 You are at the bustling market. You can go back to the village.',
     actions: { back: () => (player.location = 'inside village') }
   },
   shop: {
     description:
-      'You are at the general shop. You can go back to the village.',
+      '🏪 You are at the general shop. The merchant has basic supplies. You can go back to the village.',
     npcs: ['elara_the_shopkeeper'],
     inventory: {
       torch: { current: 5, max: 5 },
@@ -1025,47 +1110,58 @@ const locations = {
     }
   },
   inn: {
-    description: 'You are at the cozy inn. You can go back to the village.',
+    description: '🏨 You are at the cozy inn. You can go back to the village.',
+    npcs: ['innkeeper_thomas'],
     actions: {
       back: () => travel('inside village', 0),
       sleep: () => {
-        console.log('You sleep soundly until morning.')
+        console.log('🛏️ You sleep soundly until morning.')
+        console.log('💤 You feel refreshed!')
         advanceTime(8) // Sleep for 8 hours
       }
     }
   },
   temple: {
     description:
-      'You are at the serene temple. You can go back to the village.',
+      '⛪ You are at the serene temple. You can go back to the village.',
+    npcs: ['temple_priest'],
     actions: { back: () => (player.location = 'inside village') }
   },
   stables: {
-    description: 'You are at the stables. You can go back to the village.',
+    description: '🐎 You are at the stables. You can go back to the village.',
     actions: { back: () => (player.location = 'inside village') }
   },
   bar: {
     description:
-      'You are at the noisy bar. You can go back to the village.',
+      '🍺 You are at the noisy bar. You can go back to the village.',
+    npcs: ['bartender_rick'],
     actions: { back: () => (player.location = 'inside village') }
   },
   'adventurers guild': {
     description:
-      'You are at the adventurers guild. You can go back to the village.',
+      '⚔️ You are at the adventurers guild. You can go back to the village.',
     actions: { back: () => (player.location = 'inside village') }
   },
   'old abandoned mine': {
     description:
-      "You are in an old abandoned mine. You can go 'back' to the cave.",
+      '⛏️ You are in an old abandoned mine with rusty equipment scattered about. Mysterious echoes come from deeper within.',
     actions: {
-      back: () => travel('cave', 1)
+      back: () => travel('cave', 1),
+      explore: () => {
+        console.log('\n💎 You search the mine and find some old mining equipment!')
+        console.log('You found: Old Pickaxe (added to inventory)')
+        if (!player.inventory.includes('pickaxe')) {
+          player.inventory.push('pickaxe')
+        }
+      }
     }
   },
   dungeon: {
     description:
-      "You are at the entrance of a dark dungeon. You can 'enter' or go 'back' to the forest.",
+      '🏰 You are at the entrance of a dark dungeon. Dark energy emanates from within.',
     actions: {
       enter: () => {
-        console.log('You step into the damp, dark dungeon...')
+        console.log('⚔️ You step into the dungeon and encounter a goblin!')
         startCombat('goblin')
       },
       back: () => travel('forest', 1)
@@ -1073,12 +1169,12 @@ const locations = {
   },
   roads: {
     description:
-      "You are on a dusty road. You can go 'back' to the forest.",
+      "🛤️ You are on a dusty road. You can go 'back' to the forest.",
     actions: { back: () => travel('forest', 1) }
   }
 }
 
-export function displayLocation () {
+export async function displayLocation () {
   // If in combat, don't display location info, stay in combat loop
   if (gameState.currentEnemy) {
     promptCombatAction()
@@ -1110,7 +1206,7 @@ export function displayLocation () {
         console.log(`- ${npc.description}`)
       }
     })
-    console.log("You can 'talk to <name>' to interact with them.")
+    console.log("Type 'talk' to choose who to speak with, or 'talk to <name>' for specific NPCs.")
   }
 
   // Display items for sale
@@ -1125,31 +1221,38 @@ export function displayLocation () {
         )
       }
     })
-    console.log("You can 'buy <item name>' to purchase something.")
+    console.log("Type 'buy' to purchase something.")
   }
   if (location.name === 'inn') {
     console.log("You can 'sleep' here to pass the time.")
   }
   if (player.inventory.length > 0) {
-    console.log("You can 'use <item>' or 'equip <item>'.")
+    console.log("Type 'use', 'equip', or 'inventory' to manage your items.")
   }
   if (Object.values(player.equipment).some((item) => item)) {
-    console.log("Check your 'equipment' or 'unequip <slot>'.")
-    console.log("You can check your 'inventory' at any time.")
+    console.log("Check your 'equipment' or 'unequip' items.")
   }
 
+  console.log('\nAvailable commands: stats, inventory, equipment, save, load, quit')
   console.log('') // Add a blank line for spacing
-  promptAction()
+  await promptAction()
 
   // Function moved to playerSetup.js
 
-  function promptAction () {
-    rl.question('What do you do? ', (action) => {
-      handleAction(action.toLowerCase().trim())
+  async function promptAction () {
+    const action = await input({
+      message: 'What do you do?',
+      validate: (input) => {
+        if (!input || input.trim().length === 0) {
+          return 'Please enter a valid action.'
+        }
+        return true
+      }
     })
+    await handleAction(action.toLowerCase().trim())
   }
 
-  function handleAction (action) {
+  async function handleAction (action) {
     const currentLocation = locations[player.location]
     const [command, ...args] = action.split(' ')
     const argument = args.join(' ')
@@ -1158,70 +1261,136 @@ export function displayLocation () {
     if (currentLocation.actions && currentLocation.actions[command] && args.length === 0
     ) {
       currentLocation.actions[command]()
-      displayLocation()
+      await displayLocation()
       return
     }
 
     // Handle multi-word commands like "buy health potion"
     if (command === 'buy') {
-      handleBuy(argument)
-      displayLocation()
+      await handleBuy(argument)
+      await displayLocation()
       return
     }
 
     if (command === 'use') {
-      handleUse(argument)
-      displayLocation()
+      await handleUse(argument)
+      await displayLocation()
       return
     }
 
     if (command === 'inventory' || command === 'i') {
       displayInventory()
-      displayLocation()
+      await displayLocation()
       return
     }
 
     if (command === 'equip') {
-      handleEquip(argument)
-      displayLocation()
+      await handleEquip(argument)
+      await displayLocation()
       return
     }
 
     if (command === 'unequip') {
-      handleUnequip(argument)
-      displayLocation()
+      await handleUnequip(argument)
+      await displayLocation()
       return
     }
     // Check for interaction actions like "talk to <npc>"
-    if (action.startsWith('talk to ')) {
-      const npcName = action.substring(8) // Get the name after "talk to "
-      const npcId = currentLocation.npcs?.find(
-        (id) => npcs[id].name.toLowerCase() === npcName
-      )
+    if (action.startsWith('talk to ') || command === 'talk') {
+      if (command === 'talk' && currentLocation.npcs && currentLocation.npcs.length > 0) {
+        // Use select prompt to choose NPC
+        const npcChoices = currentLocation.npcs.map(npcId => ({
+          name: npcs[npcId].name,
+          value: npcId
+        }))
 
-      if (npcId) {
-        const npc = npcs[npcId]
-        // Display dialogue and cycle to the next line
+        const selectedNpcId = await select({
+          message: 'Who would you like to talk to?',
+          choices: npcChoices
+        })
+
+        const npc = npcs[selectedNpcId]
         console.log(
-        `\n[${npc.name}]: "${npc.dialogue[npc.dialogueIndex]}"`
+          `\n[${npc.name}]: "${npc.dialogue[npc.dialogueIndex]}"`
         )
         npc.dialogueIndex = (npc.dialogueIndex + 1) % npc.dialogue.length
+      } else if (action.startsWith('talk to ')) {
+        const npcName = action.substring(8) // Get the name after "talk to "
+        const npcId = currentLocation.npcs?.find(
+          (id) => npcs[id].name.toLowerCase() === npcName
+        )
+
+        if (npcId) {
+          const npc = npcs[npcId]
+          // Display dialogue and cycle to the next line
+          console.log(
+            `\n[${npc.name}]: "${npc.dialogue[npc.dialogueIndex]}"`
+          )
+          npc.dialogueIndex = (npc.dialogueIndex + 1) % npc.dialogue.length
+        } else {
+          console.log(`There is no one here by the name of '${npcName}'.`)
+        }
       } else {
-        console.log(`There is no one here by the name of '${npcName}'.`)
+        console.log('There is no one here to talk to.')
       }
-      displayLocation()
+      await displayLocation()
       return
     }
 
     if (command === 'stats' || command === 'c') {
       displayPlayerStats()
-      displayLocation()
+      await displayLocation()
       return
     }
 
     if (command === 'equipment' || command === 'e') {
       displayEquipment()
-      displayLocation()
+      await displayLocation()
+      return
+    }
+
+    if (command === 'save') {
+      console.log('\n💾 Saving your game...')
+      saveGame()
+      await displayLocation()
+      return
+    }
+
+    if (command === 'load') {
+      console.log('\n💾 Loading your game...')
+      if (loadGame()) {
+        // Game loaded successfully, restart the main game loop
+        console.log('\n🎮 Resuming your adventure...')
+        await displayLocation()
+      } else {
+        await displayLocation()
+      }
+      return
+    }
+
+    if (command === 'quit' || command === 'exit' || command === 'q') {
+      const saveFirst = await confirm({
+        message: 'Would you like to save your game before quitting?',
+        default: true
+      })
+
+      if (saveFirst) {
+        console.log('\n💾 Saving your game...')
+        saveGame()
+      }
+
+      const confirmQuit = await confirm({
+        message: 'Are you sure you want to quit the game?',
+        default: false
+      })
+
+      if (confirmQuit) {
+        console.log('\n👋 Thanks for playing Text-Based Isekai! Goodbye!')
+        process.exit(0)
+      } else {
+        console.log('\n🎮 Continuing your adventure...')
+        await displayLocation()
+      }
       return
     }
 
@@ -1230,15 +1399,57 @@ export function displayLocation () {
       // Avoids showing "Invalid action" on empty input
       console.log('Invalid action.')
     }
-    displayLocation()
+    await displayLocation()
   }
 
-  function handleBuy (itemName) {
+  async function handleBuy (itemName) {
     const shopLocation = locations[player.location]
     if (!shopLocation.inventory) {
       return console.log('There is nothing to buy here.')
     }
 
+    // If no item specified, show a select prompt
+    if (!itemName) {
+      const availableItems = Object.keys(shopLocation.inventory).filter(itemId => {
+        const stock = shopLocation.inventory[itemId]
+        return stock.current > 0
+      })
+
+      if (availableItems.length === 0) {
+        return console.log('There are no items in stock.')
+      }
+
+      const itemChoices = availableItems.map(itemId => {
+        const item = gameData.items[itemId]
+        const stock = shopLocation.inventory[itemId]
+        return {
+          name: `${item.name} - ${item.price} gold (${stock.current} in stock)`,
+          value: itemId
+        }
+      })
+
+      const selectedItemId = await select({
+        message: 'What would you like to buy?',
+        choices: itemChoices
+      })
+
+      const item = gameData.items[selectedItemId]
+      const stock = shopLocation.inventory[selectedItemId]
+
+      if (player.stats.gold < item.price) {
+        return console.log("You don't have enough gold for that.")
+      }
+
+      player.stats.gold -= item.price
+      stock.current--
+      player.inventory.push(selectedItemId)
+      console.log(
+        `You bought a ${item.name} for ${item.price} gold. You have ${player.stats.gold} gold remaining.`
+      )
+      return
+    }
+
+    // Handle specific item name
     const itemId = Object.keys(gameData.items).find((id) => gameData.items[id].name.toLowerCase() === itemName
     )
 
@@ -1265,7 +1476,46 @@ export function displayLocation () {
     )
   }
 
-  function handleUse (itemName) {
+  async function handleUse (itemName) {
+    // If no item specified, show select prompt for consumable items
+    if (!itemName) {
+      const usableItems = player.inventory.filter(itemId => {
+        const item = gameData.items[itemId]
+        return item && item.type === 'consumable' && item.effect
+      })
+
+      if (usableItems.length === 0) {
+        return console.log('You have no usable items in your inventory.')
+      }
+
+      const itemChoices = usableItems.map(itemId => {
+        const item = gameData.items[itemId]
+        return {
+          name: item.name,
+          value: itemId
+        }
+      })
+
+      const selectedItemId = await select({
+        message: 'What would you like to use?',
+        choices: itemChoices
+      })
+
+      const item = gameData.items[selectedItemId]
+
+      // Use the item
+      item.effect(player)
+      console.log(
+        `You used the ${item.name}. Your health is now ${player.stats.health}.`
+      )
+
+      // Remove from inventory
+      const itemIndex = player.inventory.indexOf(selectedItemId)
+      player.inventory.splice(itemIndex, 1)
+      return
+    }
+
+    // Handle specific item name
     const itemId = Object.keys(gameData.items).find((id) => gameData.items[id].name.toLowerCase() === itemName)
 
     if (!itemId || !player.inventory.includes(itemId)) {
@@ -1307,7 +1557,54 @@ export function displayLocation () {
     console.log('-----------------\n')
   }
 
-  function handleEquip (itemName) {
+  async function handleEquip (itemName) {
+    // If no item specified, show select prompt
+    if (!itemName) {
+      const equipableItems = player.inventory.filter(itemId => {
+        const item = gameData.items[itemId]
+        return item && item.equipSlot
+      })
+
+      if (equipableItems.length === 0) {
+        return console.log('You have no equipable items in your inventory.')
+      }
+
+      const itemChoices = equipableItems.map(itemId => {
+        const item = gameData.items[itemId]
+        return {
+          name: `${item.name} (${item.equipSlot})`,
+          value: itemId
+        }
+      })
+
+      const selectedItemId = await select({
+        message: 'What would you like to equip?',
+        choices: itemChoices
+      })
+
+      const itemToEquip = gameData.items[selectedItemId]
+      const slot = itemToEquip.equipSlot
+
+      // Unequip current item in that slot, if any
+      const currentItemId = player.equipment[slot]
+      if (currentItemId) {
+        player.inventory.push(currentItemId)
+        const currentItem = gameData.items[currentItemId]
+        console.log(
+          `You unequip the ${currentItem.name} and put it in your inventory.`
+        )
+      }
+
+      // Equip the new item
+      player.equipment[slot] = selectedItemId
+      const itemIndex = player.inventory.indexOf(selectedItemId)
+      player.inventory.splice(itemIndex, 1)
+
+      console.log(`You equip the ${itemToEquip.name}.`)
+      return
+    }
+
+    // Handle specific item name
     const itemId = Object.keys(gameData.items).find((id) => gameData.items[id].name.toLowerCase() === itemName)
 
     if (!itemId || !player.inventory.includes(itemId)) {
@@ -1340,7 +1637,41 @@ export function displayLocation () {
   }
 }
 
-function handleUnequip (slot) {
+async function handleUnequip (slot) {
+  // If no slot specified, show select prompt for equipped items
+  if (!slot) {
+    const equippedSlots = Object.keys(player.equipment).filter(equipSlot => {
+      return player.equipment[equipSlot] !== null
+    })
+
+    if (equippedSlots.length === 0) {
+      return console.log('You have nothing equipped.')
+    }
+
+    const slotChoices = equippedSlots.map(equipSlot => {
+      const itemId = player.equipment[equipSlot]
+      const item = gameData.items[itemId]
+      return {
+        name: `${equipSlot}: ${item.name}`,
+        value: equipSlot
+      }
+    })
+
+    const selectedSlot = await select({
+      message: 'What would you like to unequip?',
+      choices: slotChoices
+    })
+
+    const itemId = player.equipment[selectedSlot]
+    const item = gameData.items[itemId]
+    player.equipment[selectedSlot] = null
+    player.inventory.push(itemId)
+
+    console.log(`You unequip the ${item.name} and place it in your inventory.`)
+    return
+  }
+
+  // Handle specific slot name
   if (!Object.hasOwn(player.equipment, slot)) {
     return console.log(`'${slot}' is not a valid equipment slot.`)
   }
@@ -1493,7 +1824,79 @@ function displayPlayerStats () {
   console.log('-----------------------\n')
 }
 
-startGame()
+// Save and Load System
+function saveGame () {
+  try {
+    // Create save data object
+    const saveData = {
+      player: { ...player },
+      gameState: { ...gameState },
+      npcDialogueIndexes: {}
+    }
+
+    // Save NPC dialogue indexes
+    Object.keys(npcs).forEach(npcId => {
+      saveData.npcDialogueIndexes[npcId] = npcs[npcId].dialogueIndex
+    })
+
+    // Create saves directory if it doesn't exist
+    const savesDir = path.join(__dirname, 'saves')
+    if (!fs.existsSync(savesDir)) {
+      fs.mkdirSync(savesDir)
+    }
+
+    // Save to file
+    const saveFile = path.join(savesDir, 'savegame.json')
+    fs.writeFileSync(saveFile, JSON.stringify(saveData, null, 2))
+
+    console.log('\n💾 Game saved successfully!')
+    return true
+  } catch (error) {
+    console.log('\n❌ Error saving game:', error.message)
+    return false
+  }
+}
+
+function loadGame () {
+  try {
+    const saveFile = path.join(__dirname, 'saves', 'savegame.json')
+
+    if (!fs.existsSync(saveFile)) {
+      console.log('\n❌ No save file found!')
+      return false
+    }
+
+    // Read save data
+    const saveData = JSON.parse(fs.readFileSync(saveFile, 'utf8'))
+
+    // Restore player data
+    Object.assign(player, saveData.player)
+
+    // Restore game state
+    Object.assign(gameState, saveData.gameState)
+
+    // Restore NPC dialogue indexes
+    if (saveData.npcDialogueIndexes) {
+      Object.keys(saveData.npcDialogueIndexes).forEach(npcId => {
+        if (npcs[npcId]) {
+          npcs[npcId].dialogueIndex = saveData.npcDialogueIndexes[npcId]
+        }
+      })
+    }
+
+    console.log('\n💾 Game loaded successfully!')
+    console.log(`Welcome back, ${player.firstName} ${player.lastName}!`)
+    return true
+  } catch (error) {
+    console.log('\n❌ Error loading game:', error.message)
+    return false
+  }
+}
+
+// Start the game when module is run directly
+;(async () => {
+  await startGame()
+})()
 
 rl.on('close', () => {
   console.log('Thanks for playing!')
